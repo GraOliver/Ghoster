@@ -568,7 +568,7 @@ body {
 }
 
 .boite {
-  display: flex;
+  display: block;
   max-width: 48rem;
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -588,6 +588,7 @@ body {
 .img {
   margin-bottom: 1.25rem;
   display: flex;
+  height: 20%;
 }
 
 .img>input {
@@ -599,6 +600,7 @@ body {
 }
 
 .image {
+  height: 50%;
   width: 8.333333%;
   flex: 1 1 0%;
   border-radius: 9999px;
@@ -611,6 +613,7 @@ p {
 }
 
 input {
+  margin-bottom: 0.5rem;
   display: block;
   width: 50%;
   border-width: 1px;
@@ -629,13 +632,49 @@ input {
 }
 
 button {
+  width: 50%;
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+ul {
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(153 27 27 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 202 202 / var(--tw-bg-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(153 27 27 / var(--tw-text-opacity));
+}
+
+span {
+  margin-bottom: 0.5rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(22 101 52 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(187 247 208 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(22 101 52 / var(--tw-text-opacity));
+}
+
+button:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+}
+
+button:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
 }

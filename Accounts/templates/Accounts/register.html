@@ -12,16 +12,18 @@
 <body>
     <form action="" method="post">
         <div class="boite">
-            <div class="img">
-                {% include "profile.html" %}
-            </div>
             <div class="champ">
+                <div class="img">
+                    <img src="{% static 'Accounts/assetes/default_profile.png' %}" alt="" srcset="" class="image">
+                    <input type="file" name="profile_photo" accept="image/*"  id="id_profile_photo" src="">
+                </div>
                 {{form.as_p}}
-            
-                {% csrf_token %}
-                <button type="submit">Créer</button>
-            </div>
+                {%csrf_token%}
+                <div class="button">
+                    <button type="submit">Créer</button>
+                </div>
 
+            </div>
         </div>
     </form>
 </body>
