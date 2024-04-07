@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+<link rel='stylesheet' type='text/css' media='screen' href='{% static "Accounts/css/change.css" %}'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <form action="" method="post">
+        <div class="boite">
+            <div class="img">
+                {% include "profile.html" %}
+            </div>
+            <div class="champ">
+                {{form.as_p}}
+            
+                {% csrf_token %}
+                <button type="submit">Créer</button>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>

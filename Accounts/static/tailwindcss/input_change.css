@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html{
+    
+}
+body{
+    @apply flex justify-center  h-full bg-gray-50 content-center items-center 
+}
+.boite{
+    @apply   shadow-lg bg-white max-w-3xl   flex 
+}
+.champ{
+    @apply px-5 py-3 max-w-lg 
+}
+
+.img{
+    @apply   flex mb-5 
+}
+.img>input{
+    @apply   border-none shadow-none h-11
+}
+.image{
+    @apply w-1/12 object-cover flex-1 rounded-full ;
+}
+
+p{
+    @apply mb-4 
+}
+
+input{
+    @apply shadow-inner border border-gray-500 block w-1/2
+
+}
+.button{
+    @apply w-full justify-center flex  mt-2
+}
+button{
+    @apply bg-blue-600 text-white px-3 py-2 rounded-lg 
+}

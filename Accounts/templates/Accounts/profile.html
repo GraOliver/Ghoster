@@ -1,0 +1,9 @@
+{% load static %}
+{% load customtags %}
+{% if user.is_authenticated %}
+    <div class="img">
+        <img src="{% get_image user.username %}" alt="" srcset="" class="image">
+        <input type="file" name="profile_photo" accept="image/*"  id="id_profile_photo" src="">
+    </div>
+{% endif %}
+
