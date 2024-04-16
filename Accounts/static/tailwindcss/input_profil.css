@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*si blage de classe*/
+html{
+    @apply h-full
+}
+body {
+    @apply flex justify-center  h-full bg-gray-100 content-center items-center
+}
+.boite{
+    @apply shadow-lg bg-white max-w-lg; 
+    @apply rounded-t-2xl
+}
+.image{
+    @apply h-1/4   w-full content-center items-center  py-3 px-4 
+}
+
+img{
+    @apply  h-80 object-cover flex-1 w-full rounded-full
+}
+
+.champ{
+    @apply w-full  py-3 px-4 bg-gray-400
+}
+.champ>input{
+    @apply bg-gray-400 text-white
+
+}
+.bouton{
+    @apply py-5
+}
+button{
+    @apply bg-blue-500 text-white rounded py-2 px-3
+}
+.bouton>a{
+    @apply px-14 bg-green-500 py-4 w-5
+}
+
+
+button:hover{
+    @apply bg-green-600 transition
+
+}
