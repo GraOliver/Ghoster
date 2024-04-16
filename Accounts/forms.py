@@ -17,5 +17,10 @@ class UserChangeSign(UserChangeForm):
     class Meta(UserChangeForm):
         model=get_user_model()
         fields=['username','email','first_name','last_name']
+        
+class UploaderPhotoUserForm(form_princ.Form):
+    class Meta:
+        model = get_user_model()
+        fields = ('profile_photo', )
 
  

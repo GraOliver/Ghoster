@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
-from .forms import UserChangeSign,LoginUser,UserCreationSign
+from .forms import UserChangeSign,LoginUser,UserCreationSign,UploaderPhotoUserForm
 from django.contrib.auth import login,logout,authenticate
 from django.views.generic import View
 from django.contrib.auth.decorators import login_required
@@ -64,7 +64,8 @@ class UserCreationView(View):
         form =self.class_get_element(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("Articles:index")
+            
+            return redirect("Accounts:change_profil")
         
         return render(request,self.templates,{"form":form})
 
@@ -95,3 +96,30 @@ class UserChangeView(View):
         return render(request,self.templates,context)
     pass
 
+class UploadProfilUserView(View):
+    templates ="Accounts/profile.html"
+    class_photo_form=UploaderPhotoUserForm
+    
+    def get (self, request):
+        form =self.class_photo_form(request.GET)
+        if form.is_valid():
+            return redirect("Accounts:change_profil")
+        return render(request,self.templates,{"form":form})
+            
+    def post(self,request):
+        form = self.class_photo_form(request.POST, request.FILES, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect("Articles:index") 
+        
+        return render(request,self.templates,{"form":form})          
+
+def upload_profile_photo(request):
+    form = UploaderPhotoUserForm()
+    if request.method == 'POST':
+        form = UploaderPhotoUserForm(request.POST, request.FILES, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('Accounts:change_profil')
+    return render(request, 'Accounts/profile.html', context={'form': form})
+        

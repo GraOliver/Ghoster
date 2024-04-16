@@ -1,10 +1,30 @@
-{% load static %}
+{% extends './base.html' %} {% block content %}
+
 {% load customtags %}
-{% if user.is_authenticated %}
-    <div class="img">
-        <img src="{% get_image user.username %}" alt="" srcset="" class="image">
-        <input type="file" name="profile_photo" accept="image/*"  id="id_profile_photo" src="">
-    </div>
-{% endif %}
 
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="boite">
+            {% if user.authenticated %}
+                <div class="image">
+                    <img src="{% get_image user.username %}" alt="" srcset="">
+                    <input type="file" name="" id="">
+                </div>
+                <div class="champ">
+                    {{form}}
+                </div>
+                <a href="{% url 'Articles:index' %}" target="_blank" rel="noopener noreferrer">Passer</a>
+            {% else %}
+                <div class="image">
+                    <img src="{% get_image user.username %}" alt="" srcset="">
+                    <input type="file" name="" id="">
+                </div>
+                <div class="champ">
+                    {{form}}
+                </div>
+                <a href="{% url 'Articles:index' %}" target="_blank" rel="noopener noreferrer">Passer</a>
+            {% endif %}
+        </div>
+    </form>    
 
+{% endblock content %}

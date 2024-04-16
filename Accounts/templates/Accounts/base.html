@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+    <head>
+        <title>FotoBlog</title>
+        <link rel="stylesheet" href="{% static 'app.css' %}">
+    </head>
+    <body>
+        <div class="sidebar">
+            <h1>FotoBlog</h1>
+            {% if user.is_authenticated %}
+                <p>Salut, {{ user }} !</p>
+                {% if user.profile_photo %}
+                    <img class="avatar" src={{ user.profile_photo.url }}>
+                {% else %}
+                    <img class="avatar" src="{% static 'images/default_profile.png'%}">
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class="main">
+            {% block content %}{% endblock content %}
+        </div>
+    </body>
+</html>

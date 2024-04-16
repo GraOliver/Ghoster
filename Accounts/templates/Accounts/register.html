@@ -10,13 +10,9 @@
     <script src='main.js'></script>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <div class="boite">
             <div class="champ">
-                <div class="img">
-                    <img src="{% static 'Accounts/assetes/default_profile.png' %}" alt="" srcset="" class="image">
-                    <input type="file" name="profile_photo" accept="image/*"  id="id_profile_photo" src="">
-                </div>
                 {{form.as_p}}
                 {%csrf_token%}
                 <div class="button">
