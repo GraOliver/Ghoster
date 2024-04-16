@@ -101,9 +101,7 @@ class UploadProfilUserView(View):
     class_photo_form=UploaderPhotoUserForm
     
     def get (self, request):
-        form =self.class_photo_form(request.GET)
-        if form.is_valid():
-            return redirect("Accounts:change_profil")
+        form =UploaderPhotoUserForm()
         return render(request,self.templates,{"form":form})
             
     def post(self,request):
@@ -114,12 +112,4 @@ class UploadProfilUserView(View):
         
         return render(request,self.templates,{"form":form})          
 
-def upload_profile_photo(request):
-    form = UploaderPhotoUserForm()
-    if request.method == 'POST':
-        form = UploaderPhotoUserForm(request.POST, request.FILES, instance=request.user)
-        if form.is_valid():
-            form.save()
-            return redirect('Accounts:change_profil')
-    return render(request, 'Accounts/profile.html', context={'form': form})
         

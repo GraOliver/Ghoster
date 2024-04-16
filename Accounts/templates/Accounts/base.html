@@ -1,23 +1,18 @@
 {% load static %}
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>FotoBlog</title>
-        <link rel="stylesheet" href="{% static 'app.css' %}">
-    </head>
-    <body>
-        <div class="sidebar">
-            <h1>FotoBlog</h1>
-            {% if user.is_authenticated %}
-                <p>Salut, {{ user }} !</p>
-                {% if user.profile_photo %}
-                    <img class="avatar" src={{ user.profile_photo.url }}>
-                {% else %}
-                    <img class="avatar" src="{% static 'images/default_profile.png'%}">
-                {% endif %}
-            {% endif %}
-        </div>
-        <div class="main">
-            {% block content %}{% endblock content %}
-        </div>
-    </body>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <div class="boite">
+        {% block content %}{% endblock content %}
+    </div>
+    
+</body>
 </html>

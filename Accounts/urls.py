@@ -8,7 +8,7 @@ urlpatterns=[
     path("User_change/",views.UserChangeView.as_view(),name="change_user"),
     path("logout_user/",views.UserLogoutView.as_view(),name="logout_user"),
     path("password_change/",vue.PasswordChangeView.as_view(),name="password"),
-    path("User_change_profil/",views.upload_profile_photo,name="change_profil"),
+    path("User_change_profil/",views.UploadProfilUserView.as_view(),name="change_profil"),
     
     # nous chargeons les urls pour la reunitialisation du mot de passe
     path("reset_password", vue.PasswordResetView.as_view(),name="pass_forgeted" ),
