@@ -1,7 +1,7 @@
 {% extends './base.html' %} {% block content %}
 {% load static %}
 {% load customtags %}
-<script src="{% static 'Accounts/js/profil.js' %}"></script>
+<link rel="stylesheet" href="{% static 'Accounts/css/style_photo.css' %}">
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="boite">

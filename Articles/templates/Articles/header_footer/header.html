@@ -1,0 +1,25 @@
+{% load customtags %}
+<nav>
+    <ul>        
+        {% if user.is_authenticated %}
+            <li><img src="{% get_image user.username %}" alt="" srcset="" id="image"></li>
+            <li><a href="#">Menue</a>  
+                <ul>
+
+                    <li><a href="{% url 'Accounts:logout_user' %}">Logout</a></li>
+                    <li><a href="{% url 'Accounts:change_user' %}">change</a></li>
+                    <li><a href="{% url 'Accounts:change_profil' %}">change profil</a></li>
+
+                </ul>
+            </li>
+        {% else %}
+            <li><img src="{% get_image user.username %}" alt="" srcset="" id="image"></li>
+            <li><a href="#">Menue</a>  
+                <ul>
+                    <li><a href="{% url 'Accounts:register' %}">Rejoindre</a></li>
+                </ul>
+            </li>
+        
+        {% endif %}
+        <li><a href="{}">Cathalog</a></li>
+    </ul>
