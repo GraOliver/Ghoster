@@ -22,19 +22,13 @@
                     <img src="{% get_image user.username %}" alt="" srcset="" id="image">
                 </div>
                 <div class="champ">
-<<<<<<< HEAD
                     <input type="file" name="profile_photo" accept="image/*" required id="id_profile_photo" onchange="previewPicture(this)"></p>
                 </div>
-                <div class="bouton">
-                    <button type="submit">Changer</button>
-                    <a href="{% url 'Articles:index' %}" target="_blank" rel="noopener noreferrer">Passer</a>
-                       
-=======
-                    <p><label for="id_profile_photo">Profile :</label> <input type="file" name="profile_photo" accept="image/*" required id="id_profile_photo" onchange="previewPicture(this)"></p>
->>>>>>> parent of 69586b9 (dernier commit)
+                <div class="button">
+                    <button>Changer profil</button>
+                    <a href="{% url 'Articles:index' %}" target="_blank" rel="noopener noreferrer">je garde</a>    
                 </div>
-                <a href="{% url 'Articles:index' %}" target="_blank" rel="noopener noreferrer">Passer</a>
-                <button type="submit">Changer</button>
+            
             {% endif %}
         </div>
         
