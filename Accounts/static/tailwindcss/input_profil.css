@@ -11,7 +11,7 @@ body {
 }
 .boite{
     @apply shadow-lg bg-white max-w-lg; 
-    @apply rounded-t-2xl
+    @apply rounded-t-2xl block py-2
 }
 .image{
     @apply h-1/4   w-full content-center items-center  py-3 px-4 
@@ -29,17 +29,16 @@ img{
 
 }
 .bouton{
-    @apply py-5
+    @apply py-5 bg-green-500
 }
 button{
-    @apply bg-blue-500 text-white rounded py-2 px-3
+    @apply bg-blue-500 text-white py-2 px-3 w-1/2 
 }
-.bouton>a{
-    @apply px-14 bg-green-500 py-4 w-5
+a{
+    @apply  bg-green-500 py-2  px-12
 }
 
 
 button:hover{
-    @apply bg-green-600 transition
 
 }

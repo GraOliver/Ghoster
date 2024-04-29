@@ -1,31 +1,40 @@
 {% extends './base.html' %} {% block content %}
 {% load static %}
 {% load customtags %}
-<link rel="stylesheet" href="{% static 'Accounts/css/style_photo.css' %}">
+<script src="{% static 'Accounts/js/profil.js' %}"></script>
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="boite">
-            {% if user.authenticated %}
-                <div class="image">
-                    <img src="{% get_image user.username %}" alt="" srcset="" id="image">
-                </div>
-                <div class="champ">
-                    {{form.as_p}}
-                </div>
-                <a href="{% url 'Articles:index' %}" target="_blank" rel="noopener noreferrer">je garde</a>
-            {% else %}
+            {% if user.is_authenticated %}
                 <div class="image">
                     <img src="{% get_image user.username %}" alt="" srcset="" id="image">
                 </div>
                 <div class="champ">
                     <input type="file" name="profile_photo" accept="image/*" required id="id_profile_photo" onchange="previewPicture(this)"></p>
                 </div>
+                <div class="button">
+                    <button>Changer profil</button>
+                    <a href="{% url 'Articles:index' %}" target="_blank" rel="noopener noreferrer">je garde</a>    
+                </div>
+                
+            {% else %}
+                <div class="image">
+                    <img src="{% get_image user.username %}" alt="" srcset="" id="image">
+                </div>
+                <div class="champ">
+<<<<<<< HEAD
+                    <input type="file" name="profile_photo" accept="image/*" required id="id_profile_photo" onchange="previewPicture(this)"></p>
+                </div>
                 <div class="bouton">
                     <button type="submit">Changer</button>
                     <a href="{% url 'Articles:index' %}" target="_blank" rel="noopener noreferrer">Passer</a>
-                    
                        
+=======
+                    <p><label for="id_profile_photo">Profile :</label> <input type="file" name="profile_photo" accept="image/*" required id="id_profile_photo" onchange="previewPicture(this)"></p>
+>>>>>>> parent of 69586b9 (dernier commit)
                 </div>
+                <a href="{% url 'Articles:index' %}" target="_blank" rel="noopener noreferrer">Passer</a>
+                <button type="submit">Changer</button>
             {% endif %}
         </div>
         
