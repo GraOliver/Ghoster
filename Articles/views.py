@@ -8,13 +8,39 @@ templates ="Articles/base.html"
 def index(request):
     return render(request,templates)
     
-class UploadPhotoVente(View):
-    @login_required # gestion des utillisateur connecter
+class UploadPhotoVenteView(View):
+    template = "Articles/boutique.html"
+    get_photo =forms.PhotoForm
+    get_blog =forms.Blog
+    
+    # gestion des utillisateur connecter
     def get(self,request):
-        pass
+        form={
+            "photo_form" : self.get_photo(),
+            "blog_form" : self.get_blog()
+        }
+        return render(request,self.template,form)
+        
+            
     @login_required # gestion des utillisateur connecter
     def post(self,request):
-        pass
+        photo_form= self.get_photo(request.POST, request.FILES)
+        blog_form = self.get_blog(request.POST)
+        
+        if all([photo_form.is_valid(),blog_form.is_valid()]):
+            photo =photo_form.save(commit=False)
+            photo.uploader =request.user
+            photo.save()
+            
+            
+            blog=blog_form.save(commit=False)
+            blog.author =request.user
+            blog.photo =photo
+            blog.save()
+            
+            return redirect("index")
+            
+            
     pass
 
 class Blog(View):
