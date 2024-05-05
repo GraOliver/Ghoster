@@ -10,9 +10,14 @@ class Photo(models.Model):
     uploader = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)
     
+class Catalog(models.Model):
+    id_catalog =models.CharField(max_length =25)
+    cathegorie =models.CharField(max_length =150)
+    
 class Blog(models.Model):
     
     photo = models.ForeignKey(Photo, null=True, on_delete=models.SET_NULL, blank=True)
+    
     title = models.CharField(max_length=128)
     content = models.CharField(max_length=5000)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
