@@ -10,7 +10,11 @@
     <script src='main.js'></script>
 </head>
 <body>
-    {% include "./header_footer/header.html" %}
-    {% block content %}{% endblock content %}
+    <form action="" method="post">
+        {% include "./header_footer/header.html" %}
+        <img src="" alt="" srcset="">
+        <a href="{% url 'Articles:Photo_vente' %}" target="_blank" rel="noopener noreferrer">Vendre</a>
+    </form>
+    
 </body>
 </html>
