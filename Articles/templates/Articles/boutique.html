@@ -1,5 +1,8 @@
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
     {{blog_form.as_p}}
-
     {{photo_form.as_p}}
+    {% csrf_token %}
+
+    <img src="#" alt="" sizes="" srcset="">
+    <button type="submit">Vendre</button>
 </form>
