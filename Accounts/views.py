@@ -16,7 +16,6 @@ class LoginUserView(View):
     message_error ="Mot de passe ou mon d'utilisatuer inconnue"
     templates ="Accounts/login.html"
     class_form_login =LoginUser
-    
     def get(self,request):
         form = LoginUser()   
         return render(request,self.templates,{'form':form})
