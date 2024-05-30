@@ -6,9 +6,6 @@ from . import models,forms
 
 templates ="Articles/base.html"
 def index(request):
-    actualite={
-        "actualite" :models.Blog.objects,
-               }
     return render(request,templates)
     
 class UploadPhotoVenteView(View):
@@ -25,7 +22,7 @@ class UploadPhotoVenteView(View):
         return render(request,self.template,form)
         
             
-    #@login_required # gestion des utillisateur connecter
+    @login_required # gestion des utillisateur connecter
     def post(self,request):
         photo_form= self.get_photo(request.POST, request.FILES)
         blog_form = self.get_blog(request.POST)
@@ -35,12 +32,13 @@ class UploadPhotoVenteView(View):
             photo.uploader =request.user
             photo.save()
             
+            
             blog=blog_form.save(commit=False)
             blog.author =request.user
             blog.photo =photo
             blog.save()
             
-            return redirect("Articles:index")
+            return redirect("index")
             
             
     pass

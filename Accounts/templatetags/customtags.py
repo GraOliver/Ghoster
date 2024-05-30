@@ -11,9 +11,9 @@ def get_image(value):
     Returns:
         _type_: _description_
     """
-
     images = models.User.objects.get(username=value)
     if images.profile_photo and hasattr(images.profile_photo,'url'):
         return images.profile_photo.url
     else :
         return "/static/Accounts/assetes/default_profile.png"
+    
