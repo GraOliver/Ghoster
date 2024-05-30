@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tailwindcss -i input_profil.css -o D:/KongoTech/GhosterProject/GHo/Ghoster/Accounts/static/Accounts/css/style_photo.css --watch"
+    "build": "tailwindcss -i input.css -o D:/KongoTech/GhosterProject/GHo/Ghoster/Accounts/static/Accounts/css/main.css --watch"
   },
   "keywords": [],
   "author": "",
