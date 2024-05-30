@@ -64,9 +64,7 @@ class UserCreationView(View):
         form =self.class_get_element(request.POST)
         if form.is_valid():
             form.save()
-            
-            return redirect("Accounts:change_profil")
-        
+            return redirect("Accounts:login_user")
         return render(request,self.templates,{"form":form})
 
 class UserChangeView(View):

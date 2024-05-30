@@ -18,7 +18,7 @@
                 
             {% else %}
                 <div class="image">
-                    <img src="{% get_image user.username %}" alt="" srcset="" id="image">
+                    <img src="{% static "Accounts/assetes/default_profile.png" %}" alt="" srcset="" id="image">
                 </div>
                 <div class="champ">
                     <input type="file" name="profile_photo" accept="image/*" required id="id_profile_photo" onchange="previewPicture(this)"></p>
