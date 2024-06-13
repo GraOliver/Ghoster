@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Ghoster</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='{% static "Accounts/css/main.css" %}'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <form action="" method="post">
+        <div class="gauche">
+            <div class="info">
+                <h1>Ghoster</h1>
+            </div>
+            <div class="commet">
+                Je suis une personne
+            </div>
+        </div>
+
+        <div class="boite">
+            <img src="{% static 'Accounts/assetes/gt.jpg' %}" alt="" srcset="" class="img">
+            <div class="titre">
+                <h1>Connexion</h1>
+                <div class="champ">
+                    {{form}}
+                </div>
+                {% for message in messages %}
+                    <div class="error">
+                        <span>{{message}}</span>
+                        <a href="{% url 'Accounts:pass_forgeted' %}">Mot de passe oublié</a>
+                    </div>
+                
+                {%endfor %}
+                
+                {%  csrf_token %}
+                <a href="{% url 'Accounts:register_user' %}">Register</a>
+                <button type="submit">Connexion</button>
+            </div>
+            
+        </div>
+    </form>
+    
+</body>
+</html>
