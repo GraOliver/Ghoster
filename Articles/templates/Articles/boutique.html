@@ -1,8 +1,11 @@
 {% extends "./base.html" %}
 {% block content %}
-<h2>Vencdre </h2>
+
+    <h2>Vencdre </h2>
     {{blog_form.as_p}}
     {{photo_form.as_p}}
     {% csrf_token %} 
+
+
     <button>Vencdre</button>
 {% endblock content %}

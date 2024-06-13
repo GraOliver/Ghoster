@@ -1,14 +1,35 @@
 {% extends "./base.html" %}
 {% block content %}
-<h1>Article</h1>
-{% for blogs in Article %}
-    {{blogs.title}}
-    <img src='{{blogs.photo.uploader.profile_photo.url}}'>
-    {{blogs.photo.uploader.name}}
-    {{blogs.photo.caption}}
-    {{blogs.content}}
-    {{blogs.date_created}}
-{% endfor %}
+<div class="gauche">
+    <!-- Lq partie du gauche -->
+</div>
 
-    
+<div class="articles">
+    <!-- Parti centrale -->
+    {% for blogs in Article %}
+        <div class="cadre">
+            <!-- cadre general -->
+            <div class="profil">
+                <img src="{{blogs.photo.uploader.profile_photo.url}}" alt="">
+                <span>{{blogs.author}}</span>
+            </div>
+            <div class="vente">
+                <span>Cathegorie : {{bogs.photo.caption}}</span>
+                <img src="{{blogs.photo.image.url}}" alt="">
+                <span>{{blogs.content}}</span>
+                <span>{{blogs.date_created}}</span>
+            </div>
+            <button type="submit">Interesser</button>
+        </div>
+
+    {% endfor %}
+</div>
+
+
+
+
+
+<div class="droite">
+
+</div>
 {% endblock content %}

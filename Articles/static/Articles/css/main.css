@@ -555,6 +555,7 @@ video {
 }
 
 html {
+<<<<<<< HEAD
   height: 100%;
 }
 
@@ -616,11 +617,86 @@ button {
 label {
   margin-bottom: 1rem;
   margin-top: 0.5rem;
+=======
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+body {
+  height: 100%;
+}
+
+nav {
+  display: flex;
+  height: 8rem;
+  width: 100%;
+  align-content: center;
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+nav>ul>li>img {
+  height: 10rem;
+  border-radius: 9999px;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(30 64 175 / var(--tw-border-opacity));
+  -o-object-fit: cover;
+     object-fit: cover;
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+/* style de maine d */
+
+.main {
+  display: flex;
+  max-height: 100%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.gauche {
+  margin-right: 0px;
+  max-height: 100%;
+  width: 20%;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.droite {
+  max-height: 100%;
+  width: 20%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
+}
+
+h2 {
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity));
+}
+
+span {
+>>>>>>> design_principal
   display: block;
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
+<<<<<<< HEAD
 input {
   width: 100%;
   border-width: 1px;
@@ -716,3 +792,65 @@ input:focus {
   border-color: rgb(22 163 74 / var(--tw-border-opacity));
 }
 
+=======
+/* gestion du centre */
+
+.articles {
+  display: flex;
+  height: 100%;
+  width: 60%;
+  align-content: center;
+  justify-content: center;
+  --tw-bg-opacity: 1;
+  background-color: rgb(6 182 212 / var(--tw-bg-opacity));
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.cadre {
+  display: grid;
+  height: 50%;
+  width: 66.666667%;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* Profile  */
+
+.profil {
+  display: flex;
+}
+
+.profil>img {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 9999px;
+}
+
+/* vente et image */
+
+.vente {
+  display: grid;
+  width: 100%;
+  align-content: center;
+  justify-content: center;
+  border-width: 1px;
+}
+
+.vente>img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.vente>span {
+  justify-self: start;
+}
+>>>>>>> design_principal
