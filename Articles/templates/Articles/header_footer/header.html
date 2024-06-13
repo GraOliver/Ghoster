@@ -16,10 +16,11 @@
             <li><img src="{ }" alt="" srcset="" id="image"></li>
             <li><a href="#">Menue</a>  
                 <ul>
-                    <li><a href="{% url 'Accounts:register_user ' %}">Rejoindre</a></li>
+                    <li><a href="{% url 'Accounts:register_user' %}">Rejoindre</a></li>
                 </ul>
             </li>
         
         {% endif %}
-        <li><a href="{}">Cathalog</a></li>
+        <li><a href="{% url 'Articles:Photo_vente'%}">Vendre</a></li>
+        <li><a href="{%url 'Articles:index'%}">Accueille</a></li>
     </ul>

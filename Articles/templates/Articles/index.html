@@ -1,5 +1,14 @@
-{% {% extends "./base.html" %} %}{% block content %}
-<a href="{% url 'Accounts:logout_user' %}">Logout</a>
-<a href="{% url 'Accounts:change_user' %}">change</a>
-<a href="{% url 'Accounts:change_profil' %}">change profil</a>
+{% extends "./base.html" %}
+{% block content %}
+<h1>Article</h1>
+{% for blogs in Article %}
+    {{blogs.title}}
+    <img src='{{blogs.photo.uploader.profile_photo.url}}'>
+    {{blogs.photo.uploader.name}}
+    {{blogs.photo.caption}}
+    {{blogs.content}}
+    {{blogs.date_created}}
+{% endfor %}
+
+    
 {% endblock content %}

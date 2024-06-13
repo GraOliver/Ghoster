@@ -10,11 +10,10 @@
     <script src='main.js'></script>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %} 
         {% include "./header_footer/header.html" %}
-        <img src="" alt="" srcset="">
-        <a href="{% url 'Articles:Photo_vente' %}" target="_blank" rel="noopener noreferrer">Vendre</a>
+        {%block content%}{%endblock content%}
     </form>
-    
 </body>
 </html>

@@ -3,26 +3,38 @@ from django.views.generic import View
 from django.template import loader
 from django.contrib.auth.decorators import login_required
 from . import models,forms
-
-templates ="Articles/base.html"
+from .models import Blog
+import random
+templates ="Articles/index.html"
 def index(request):
-    return render(request,templates)
+    contexts ={
+        'Article':models.Blog.objects.all()
+    }
+    return render(request,templates,contexts)
+
+class Blog(View):
+    template="Articles/index"
+    contents ={
+        'Article':Blog.objects.all()
+    }
+    def get (self,request):
+        return render(request,self.template,self.contents)
     
 class UploadPhotoVenteView(View):
     template = "Articles/boutique.html"
     get_photo =forms.PhotoForm
     get_blog =forms.Blog
     
-    # gestion des utillisateur connecter
+    # @login_required # gestion des utillisateur connecter
     def get(self,request):
         form={
-            "photo_form" : self.get_photo(),
+            "photo_form" : self.get_photo(request.POST),
             "blog_form" : self.get_blog()
         }
         return render(request,self.template,form)
         
             
-    @login_required # gestion des utillisateur connecter
+    # @login_required # gestion des utillisateur connecter
     def post(self,request):
         photo_form= self.get_photo(request.POST, request.FILES)
         blog_form = self.get_blog(request.POST)
@@ -32,15 +44,16 @@ class UploadPhotoVenteView(View):
             photo.uploader =request.user
             photo.save()
             
-            
             blog=blog_form.save(commit=False)
             blog.author =request.user
             blog.photo =photo
             blog.save()
-            
-            return redirect("index")
-            
-            
+            return redirect("Articles:index")
+        else :
+            return render(request,self.template)
+        
+        return redirect("Articles:index")
+           
     pass
 
 class Blog(View):
