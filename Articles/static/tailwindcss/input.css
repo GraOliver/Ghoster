@@ -3,66 +3,61 @@
 @tailwind utilities;
 
 html{
-    @apply h-full 
+    @apply h-full w-full px-0  py-0 block
 }
 body{
-    @apply flex justify-center  h-full bg-gray-200 content-center items-center
+    @apply h-full
 }
-.boite{
-    @apply shadow-lg bg-white max-w-lg; 
-    /* Responseve */
-    @apply md:flex
+nav{
+    @apply bg-blue-500 h-32 w-full shadow-lg flex content-center
 }
 
-.titre{
-    @apply p-4 md:flex md:flex-col justify-center flex-1
+nav>ul>li>img{
+    @apply rounded-full h-40 object-cover border-blue-800 shadow-sm border
 }
-.champ{
-    @apply mb-4 
+/* style de maine d */
+.main{
+    @apply  bg-green-400 flex max-h-full px-0  py-5
+
+}
+.gauche{
+    @apply w-1/5 max-h-full mr-0 px-0
+}
+.droite{
+    @apply bg-yellow-400 max-h-full w-1/5
 }
 
-
-button{
-    @apply bg-blue-500 text-white rounded py-2 px-3
-}
-label{
-    @apply block text-gray-600 mb-4 mt-2
-}
-
-input{
-    @apply shadow-inner border py-2 px-3 text-gray-700 w-full 
-}
-h1{
-    @apply text-2xl font-bold text-gray-800
-}
-
-.img{
-    @apply w-full h-40 object-cover flex-1 ;
-
-    @apply md:w-full transition 
-}
-
-.error{
-    @apply  bg-red-100 text-red-700 justify-center border border-red-700 mb-2 rounded py-2 px-3 from-transparent
+h2{
+    @apply text-gray-800 
 }
 span{
-    @apply block
-}
-a{
-    @apply line-clamp-1
-}
-a:hover{
-    @apply text-green-600
+    @apply text-gray-600 block
 }
 
 
-/* Les effets */
-
-button:hover{
-    @apply bg-green-600 transition
-
+/* gestion du centre */
+.articles{
+    @apply bg-cyan-500 h-full w-3/5 py-3 px-4 flex justify-center content-center
 }
-input:focus{
-    @apply border-green-600 border
+.cadre{
+    @apply border rounded-lg w-2/3 h-1/2 px-4 py-3 grid 
+}
+/* Profile  */
+.profil{
+    @apply flex 
+}
+.profil>img{
+    @apply rounded-full h-16 w-16
+}
+/* vente et image */
+
+.vente{
+    @apply w-full justify-center content-center grid border 
+}
+.vente>img{
+    @apply w-full h-full object-cover
 }
 
+.vente>span{
+    @apply justify-self-start 
+}

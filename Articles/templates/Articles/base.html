@@ -6,14 +6,17 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Ghoster</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='{% static "Articles/css/main.css"%}'>
     <script src='main.js'></script>
 </head>
 <body>
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %} 
         {% include "./header_footer/header.html" %}
-        {%block content%}{%endblock content%}
+            <div class="main">
+                {%block content%}{%endblock content%}     
+            </div>        
+       
     </form>
 </body>
 </html>
