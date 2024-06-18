@@ -3,66 +3,16 @@
 @tailwind utilities;
 
 html{
-    @apply h-full 
+    @apply h-full
 }
 body{
-    @apply flex justify-center  h-full bg-gray-200 content-center items-center
+    @apply flex justify-center content-center items-center bg-gray-100
 }
+/* Nous allons prendre les commentaire */
+.comment{
+    @apply bg-red-500 w-1/4
+}
+/* Nous allons cibler le  */
 .boite{
-    @apply shadow-lg bg-white max-w-lg; 
-    /* Responseve */
-    @apply md:flex
+    @apply shadow-lg w-3/4  bg-white grid items-center
 }
-
-.titre{
-    @apply p-4 md:flex md:flex-col justify-center flex-1
-}
-.champ{
-    @apply mb-4 
-}
-
-
-button{
-    @apply bg-blue-500 text-white rounded py-2 px-3
-}
-label{
-    @apply block text-gray-600 mb-4 mt-2
-}
-
-input{
-    @apply shadow-inner border py-2 px-3 text-gray-700 w-full 
-}
-h1{
-    @apply text-2xl font-bold text-gray-800
-}
-
-.img{
-    @apply w-full h-40 object-cover flex-1 ;
-
-    @apply md:w-full transition 
-}
-
-.error{
-    @apply  bg-red-100 text-red-700 justify-center border border-red-700 mb-2 rounded py-2 px-3 from-transparent
-}
-span{
-    @apply block
-}
-a{
-    @apply line-clamp-1
-}
-a:hover{
-    @apply text-green-600
-}
-
-
-/* Les effets */
-
-button:hover{
-    @apply bg-green-600 transition
-
-}
-input:focus{
-    @apply border-green-600 border
-}
-
