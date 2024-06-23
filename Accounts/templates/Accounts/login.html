@@ -3,23 +3,24 @@
 {%block content%}
     <form action="" method="post">
         <div class="boite">
-            <img src="{% static 'Accounts/assetes/gt.jpg' %}" alt="" srcset="" class="img">
             <div class="titre">
                 <h1>Connexion</h1>
                 <div class="champ">
-                    {{form}}
+                    {{form.as_p}}
                 </div>
                 {% for message in messages %}
                     <div class="error">
                         <span>{{message}}</span>
-                        <a href="{% url 'Accounts:pass_forgeted' %}">Mot de passe oublié</a>
                     </div>
                 
                 {%endfor %}
                 
                 {%  csrf_token %}
-                <a href="{% url 'Accounts:register_user' %}">Register</a>
-                <button type="submit">Connexion</button>
+                <div class="button">
+                    <a href="{% url 'Accounts:pass_forgeted' %}">Mot de passe oublié</a>
+                    <button type="submit">Connexion</button>
+                    <a href="{% url 'Accounts:register_user' %}">Register</a>
+                </div>
             </div>
             
         </div>

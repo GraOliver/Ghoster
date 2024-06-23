@@ -6,13 +6,47 @@ html{
     @apply h-full
 }
 body{
-    @apply flex justify-center content-center items-center bg-gray-100
+    @apply flex justify-center  h-full bg-gray-200 content-center items-center
 }
 /* Nous allons prendre les commentaire */
 .comment{
-    @apply bg-red-500 w-1/4
+    @apply bg-red-500 w-1/3
 }
-/* Nous allons cibler le  */
+/* Nous allons cibler les boites   */
 .boite{
-    @apply shadow-lg w-3/4  bg-white grid items-center
+    @apply shadow-lg   bg-white  rounded-lg w-full px-4 py-3 bg-scroll 
+}
+/* ciblage general */
+label{
+    @apply text-gray-600
+}
+h1{
+    @apply text-cyan-600 text-2xl font-bold mb-4 
+}
+input{
+    @apply border border-cyan-800 rounded-lg px-3 py-2 bg-white shadow-inner
+}
+a{
+    @apply  text-cyan-600
+}
+
+.error{
+    @apply  bg-red-100 text-red-700 justify-center border border-red-700 mb-2 rounded py-2 px-3 from-transparent
+}
+
+/* Vison maintenant chaque element de div boite */
+.champ{
+    @apply grid mb-4 px-3 py-2 
+}
+
+.champ>p{
+    @apply mb-5  self-end
+}
+.champ>p>input{
+    @apply self-end
+}
+
+/* button div */
+.button{
+    @apply grid justify-center items-center content-center  w-full bg-cyan-500 text-white;
 }
