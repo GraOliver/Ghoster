@@ -1,35 +1,48 @@
 {% extends "./base.html" %}
 {% block content %}
-<div class="gauche">
-    <!-- Lq partie du gauche -->
-</div>
-
-<div class="articles">
-    <!-- Parti centrale -->
-    {% for blogs in Article %}
-        <div class="cadre">
-            <!-- cadre general -->
-            <div class="profil">
-                <img src="{{blogs.photo.uploader.profile_photo.url}}" alt="">
-                <span>{{blogs.author}}</span>
-            </div>
-            <div class="vente">
-                <span>Cathegorie : {{bogs.photo.caption}}</span>
-                <img src="{{blogs.photo.image.url}}" alt="">
-                <span>{{blogs.content}}</span>
-                <span>{{blogs.date_created}}</span>
-            </div>
-            <button type="submit">Interesser</button>
+<div class="container-fluid d-flex">
+    <div class="row py-5 mt-5">
+        <div class="col-3 border ">
+            <!-- La collone de publicite et autre  -->
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium eos labore culpa voluptate nobis magnam magni dolorem at ipsum sed! Laborum magni eum doloribus porro tenetur enim doloremque nihil reprehenderit.
         </div>
+        <div class="col-9 border justufy-content-start py-3 mb-4">
+            {% for blogs in Article %}
+                <div class="container rounded shadow-sm col-6 mb-4 ">
+                    <div class="roundided-pill col-9">
+                        <!-- partie identite des utilisateur -->
+                        <img src="{{blogs.photo.uploader.profile_photo.url}}" alt="" class="rounded-pill border" style="width: 15%;">
+                        <span class="mt-4 px-3 h3">{{blogs.author.first_name}}</span>
+                    </div>
+                    <div class=" container px-3 py-2 mb-4 col-12 ">
+                        <!-- division du style de affichage -->
+                        <div class="col-6">
+                            <!-- le titre -->
+                            <span class="h3">{{blogs.title}}</span>
+                        </div>
+                        <div class="col-6">
+                            <!-- la date -->
+                            <span class="text-danger">.</span><span class="text-secondary">{{blogs.date_created}}</span>
+                        </div>
+                        <div class="col-12 ">
+                            <!-- image -->
+                            <div class="container w-75">
+                                <img src="{{blogs.photo.image.url}}" alt="" class="img-fluid img-thumbail">
+                            </div>
+                        </div>
+                        <div class="col-12 rounded border">
+                            <!-- description -->
+                            <span class="text-secondary">{{blogs.content}}</span>
+                        </div>
 
-    {% endfor %}
-</div>
-
-
-
-
-
-<div class="droite">
-
+                        <form class="d-flex justify-content-center mt-4" action="" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-outline-success w-25"type="submit">Intererser</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% endblock content %}

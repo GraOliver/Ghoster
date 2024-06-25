@@ -56,9 +56,8 @@ class UploadPhotoVenteView(View):
            
     pass
 
-class Blog(View):
+class ProfilSeller(View):
     def get(self,request):
         pass
-    def post(self,request):
+    def post(self,reauest):
         pass
-    pass
