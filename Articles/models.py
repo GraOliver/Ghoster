@@ -10,8 +10,9 @@ class Photo(models.Model):
     uploader = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)
     
-class Catalog(models.Model):
-    id_catalog =models.CharField(max_length =25, primary_key=True)
+class CatalogProduit(models.Model):
+    cathegorie =models.CharField(max_length =150)
+class CatalogBoutique(models.Model):
     cathegorie =models.CharField(max_length =150)
     
 class Blog(models.Model):
@@ -22,4 +23,34 @@ class Blog(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)
     starred = models.BooleanField(default=False)
+
+class Boutique(models.Model):
+    #indetity of boutique
+    photo = models.ForeignKey(Photo, null=True, on_delete=models.SET_NULL, blank=True)
+    nom_boutique = models.CharField(max_length=128,verbose_name='Nom de la boutique')
+    cathegorie =models.ForeignKey(CatalogBoutique,on_delete=models.CASCADE)
+    date_created = models.DateTimeField(auto_now_add=True)
+    #localisation de la boutique et telephone
+    adresse=models.CharField(max_length=150)
+    telephone=models.CharField(max_length=14)
+    ville=models.CharField(max_length=155)
+    pays =models.CharField(max_length=155)
+    #Us=tilisateur
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    #information supplementaire
+    description = models.TextField(max_length=500)
+    starred = models.BooleanField(default=False)
+
+class Produit(models.Model):
     
+    #information sur le produit
+    libele=models.CharField(max_length=120)
+    quantite =models.IntegerField(max_length=50)
+    prix=models.FloatField(max_length=50)
+    cathegorie =models.ForeignKey(CatalogProduit,on_delete=models.CASCADE)
+    description=models.TextField(max_length=200)
+    photo = models.ForeignKey(Photo, null=True, on_delete=models.SET_NULL, blank=True)
+    
+    #identite du vendeur
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    boutique =models.ForeignKey(Boutique,on_delete=models.CASCADE)

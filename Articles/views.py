@@ -3,7 +3,7 @@ from django.views.generic import View
 from django.template import loader
 from django.contrib.auth.decorators import login_required
 from . import models,forms
-from .models import Blog
+from .models import Blog,Boutique
 import random
 templates ="Articles/index.html"
 def index(request):
@@ -28,7 +28,7 @@ class UploadPhotoVenteView(View):
     # @login_required # gestion des utillisateur connecter
     def get(self,request):
         form={
-            "photo_form" : self.get_photo(request.POST),
+            "photo_form" : self.get_photo(),
             "blog_form" : self.get_blog()
         }
         return render(request,self.template,form)
@@ -56,6 +56,22 @@ class UploadPhotoVenteView(View):
            
     pass
 
+class BoutiqueGestionView(View):
+    template ="Articles/boutique_manage.html"
+    get_photo =forms.PhotoForm
+    get_boutique =forms.BoutiqueManegerForm
+        
+    def get (self,request):
+        context ={
+            "boutique_form":self.get_boutique(),
+            "photo_form":self.get_photo()
+        }
+        return render(request,self.template,context)
+        
+class ProduitView(View):
+    def get(self,request):
+        pass
+    
 class ProfilSeller(View):
     def get(self,request):
         pass

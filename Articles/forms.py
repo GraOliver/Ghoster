@@ -6,10 +6,17 @@ class PhotoForm(forms.ModelForm):
         model =models.Photo
         fields =['image','caption']
     
-    pass
+
 
 class Blog(forms.ModelForm):
     class Meta :
         model =models.Blog
         fields =['title','content']
-        
+        pass
+    
+    pass
+
+class BoutiqueManegerForm(forms.ModelForm):
+    class Meta:
+        model =models.Boutique
+        fields = ['nom_boutique','cathegorie','adresse','telephone','ville','pays','description']
