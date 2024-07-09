@@ -8,5 +8,6 @@ urlpatterns=[
     path("Ma boutique",views.UploadPhotoVenteView.as_view(),name="vendre"),
     path("Profil_seller",views.ProfilSeller.as_view(), name="profil_seller"),
     path("Boutique_gestionnaire", views.BoutiqueGestionView.as_view(), name="boutique_manager"),
+    path("/gestion de produit", views.ProduitView.as_view(), name="produit"),
     path("Blog",views.Blog.as_view(),name="Blog_")
 ]

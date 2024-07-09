@@ -32,8 +32,7 @@ class UploadPhotoVenteView(View):
             "blog_form" : self.get_blog()
         }
         return render(request,self.template,form)
-        
-            
+                
     # @login_required # gestion des utillisateur connecter
     def post(self,request):
         photo_form= self.get_photo(request.POST, request.FILES)
@@ -67,9 +66,29 @@ class BoutiqueGestionView(View):
             "photo_form":self.get_photo()
         }
         return render(request,self.template,context)
-        
+    def post(self,request):
+       boutique_form=self.get_boutique(request.POST)
+       photo_form =self.get_photo(request.POST,request.FILES)
+       if all([boutique_form.is_valid(),photo_form.is_valid()]):
+           #organisation de la photo
+           photo=photo_form.save(commit=False)
+           photo.uploader=request.user
+           photo.save()
+           
+           boutique =boutique_form.save(commit=False)
+           boutique.author =request.user
+           boutique.photo =photo
+           boutique.save()
+           return redirect("Articles:index")
+       else :
+           return render(request,self.template)
+               
 class ProduitView(View):
+    templetes ="./description_articles.html"
+    
     def get(self,request):
+        return render(request,self.templetes)
+    def post(self,request):
         pass
     
 class ProfilSeller(View):
