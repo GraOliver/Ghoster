@@ -20,8 +20,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('Ghoster/',include("Accounts.urls"),name='Accounts'),
-    path('index/',include("Articles.urls"),name='Articles')
+    path('Login/',include("Accounts.urls"),name='Accounts'),
+    path('Ghoster/',include("Articles.urls"),name='Articles')
 ]
 
 #Gestion des images 

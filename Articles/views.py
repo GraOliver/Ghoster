@@ -1,27 +1,27 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.views.generic import View
 from django.template import loader
 from django.contrib.auth.decorators import login_required
 from . import models,forms
-from .models import Blog,Boutique
+from .models import Blog,Boutique,Produit
 import random
 templates ="Articles/index.html"
 def index(request):
     contexts ={
-        'Article':models.Blog.objects.all()
+        'Article':models.Boutique.objects.all()
     }
     return render(request,templates,contexts)
 
-class Blog(View):
-    template="Articles/index"
+class BlogView(View):
+    template="Articles/index.html"
     contents ={
-        'Article':Blog.objects.all()
+        'Article':Boutique.objects.all(), 
     }
     def get (self,request):
         return render(request,self.template,self.contents)
     
 class UploadPhotoVenteView(View):
-    template = "Articles/boutique.html"
+    template = "Articles/boutique/boutique.html"
     get_photo =forms.PhotoForm
     get_blog =forms.Blog
     
@@ -56,10 +56,11 @@ class UploadPhotoVenteView(View):
     pass
 
 class BoutiqueGestionView(View):
-    template ="Articles/boutique_manage.html"
+    template ="Articles/boutique/boutique_manage.html"
     get_photo =forms.PhotoForm
     get_boutique =forms.BoutiqueManegerForm
-        
+    
+    @login_required    
     def get (self,request):
         context ={
             "boutique_form":self.get_boutique(),
@@ -82,17 +83,37 @@ class BoutiqueGestionView(View):
            return redirect("Articles:index")
        else :
            return render(request,self.template)
-               
+
+class BoutiqueDescrptionView(View):
+     templetes ="Articles/boutique/boutique_description.html"
+    #  @login_required
+     def get(self,request):
+         return render(request,self.templetes)
+                   
 class ProduitView(View):
-    templetes ="./description_articles.html"
-    
+    templetes ="Articles/articles/description_articles.html"
+    context ={
+        "user": Boutique.objects.all
+    } 
     def get(self,request):
-        return render(request,self.templetes)
+        return render(request,self.templetes,self.context)
     def post(self,request):
         pass
     
 class ProfilSeller(View):
+    templates='articles/user/description_compte.html'
     def get(self,request):
+        return render(request,self.templates)
+    def post(self,request):
         pass
-    def post(self,reauest):
-        pass
+class DescriptionProductView(View):
+    template ="Articles/boutique/boutique_description.html"
+    def get(self,request,user):
+        context ={'boutique':Blog.objects.get(author=1)}
+        # context = {'boutique':get_object_or_404(Blog,pk=user).get_deferred_fields()}
+        # if get_object_or_404(Boutique,pk=user).get_deferred_fields:
+        #     return render(request,self.template,{'boutique':get_object_or_404(Boutique,pk=user)})
+        # else:
+        return render(request,self.template,context)
+       
+        

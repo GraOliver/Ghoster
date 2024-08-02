@@ -4,12 +4,10 @@
     <div class="row py-5 mt-5">
         <div class="col-3 border ">
             <!-- La collone de publicite et autre  -->
-             <a href="{% url 'Articles:vendre' %}">
+             <a href="{% url 'Articles:vendre' %}" style='display=block'>
                 Create My boutique
              </a>
-             <a href="{% url 'Articles:produit' %}">
-                Produit
-             </a>
+             <a href={%url 'Articles:profil_seller'%}>profil</a>
              
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium eos labore culpa voluptate nobis magnam magni dolorem at ipsum sed! Laborum magni eum doloribus porro tenetur enim doloremque nihil reprehenderit.
         </div>
@@ -18,8 +16,8 @@
                 <div class="container rounded shadow-sm col-6 mb-4 ">
                     <div class="roundided-pill col-9">
                         <!-- partie identite des utilisateur -->
-                        <img src="{{blogs.photo.uploader.profile_photo.url}}" alt="" class="rounded-pill border" style="width: 15%;">
-                        <span class="mt-4 px-3 h3">{{blogs.author.first_name}}</span>
+                        <a href="{%url 'Articles:profil_seller'%}" class='text-black none'><img src="{{blogs.photo.uploader.profile_photo.url}}" alt="" class="rounded-pill border" style="width: 15%;">
+                        <span class="mt-4 px-3 h3">{{blogs.author.first_name}}</span></a> 
                     </div>
                     <div class=" container px-3 py-2 mb-4 col-12 ">
                         <!-- division du style de affichage -->
@@ -34,14 +32,12 @@
                         <div class="col-12 ">
                             <!-- image -->
                             <div class="container w-75">
-                                <img src="{{blogs.photo.image.url}}" alt="" class="img-fluid img-thumbail">
+                                    {%csrf_token%}
+                                    <a href='{% url "Articles:produit" blogs.id %}'>
+                                        <img src="{{blogs.photo.image.url}}" alt="" class="img-fluid img-thumbail">
+                                    </a>
                             </div>
                         </div>
-                        <div class="col-12 rounded border">
-                            <!-- description -->
-                            <span class="text-secondary">{{blogs.content}}</span>
-                        </div>
-
                         <form class="d-flex justify-content-center mt-4" action="" method="post">
                             {% csrf_token %}
                             <button class="btn btn-outline-success w-25"type="submit">Intererser</button>
@@ -49,6 +45,7 @@
                     </div>
                 </div>
             {% endfor %}
+            
         </div>
     </div>
 </div>
