@@ -3,26 +3,26 @@
 {%load static%}
 <main>
     <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+      <!-- les boutons  -->
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
+      <!-- Contennaire des images -->
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="{% static "user.profil_user" %}" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-          
+          <img class="bd-placeholder-img" width="100%" height="100%" src="{{response.photo.image.url}}" alt="" srcset="">
           <div class="container">
             <div class="carousel-caption text-start">
-              <h1>Example headline.</h1>
-              <p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
+              <h1>{{response.title}}</h1>
+              <p class="opacity-75">{{response.description}}</p>
               <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
             </div>
           </div>
         </div>
-        <div class="carousel-item">
-          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"href="{}"/></svg>
-          <img src="{% static 'Articles/' %}" alt="" srcset="">
+        <!-- <div class="carousel-item">
+          <img class="bd-placeholder-img" width="100%" height="100%" src="{%static 'Articles/assetes/logo.png'%}" alt="" srcset="">
           <div class="container">
             <div class="carousel-caption">
               <h1>Another example headline.</h1>
@@ -30,7 +30,7 @@
               <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="carousel-item">
           <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
           <div class="container">
@@ -42,6 +42,7 @@
           </div>
         </div>
       </div>
+      <!-- les bouton de naviations -->
       <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -50,6 +51,7 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
+      <!-- Fin contenair  -->
     </div>
 
 
@@ -58,7 +60,7 @@
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
     <div class="container marketing">
-      {{boutique.adresse}}
+      {{response.photo.image.url}}
 
       <!-- Three columns of text below the carousel -->
       <div class="row">
