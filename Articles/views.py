@@ -60,7 +60,7 @@ class BoutiqueGestionView(View):
     get_photo =forms.PhotoForm
     get_boutique =forms.BoutiqueManegerForm
     
-    @login_required    
+    #@login_required    
     def get (self,request):
         context ={
             "boutique_form":self.get_boutique(),
@@ -87,8 +87,12 @@ class BoutiqueGestionView(View):
 class BoutiqueDescrptionView(View):
      templetes ="Articles/boutique/boutique_description.html"
     #  @login_required
-     def get(self,request):
-         return render(request,self.templetes)
+     def get(self,request,boutique_id):
+         context ={
+             'response' : get_object_or_404(Boutique,author=boutique_id)
+         }
+         
+         return render(request,self.templetes,context)
                    
 class ProduitView(View):
     templetes ="Articles/articles/description_articles.html"
@@ -106,6 +110,7 @@ class ProfilSeller(View):
         return render(request,self.templates)
     def post(self,request):
         pass
+    
 class DescriptionProductView(View):
     template ="Articles/boutique/boutique_description.html"
     def get(self,request,user):
