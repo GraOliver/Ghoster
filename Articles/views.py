@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from . import models,forms
 from .models import Blog,Boutique,Produit
 import random
+from django.core.paginator import Paginator
 templates ="Articles/index.html"
 def index(request):
     contexts ={
@@ -15,7 +16,7 @@ def index(request):
 class BlogView(View):
     template="Articles/index.html"
     contents ={
-        'Article':Boutique.objects.all(), 
+        'article':Produit.objects.all(), 
     }
     def get (self,request):
         return render(request,self.template,self.contents)
@@ -96,11 +97,16 @@ class BoutiqueDescrptionView(View):
                    
 class ProduitView(View):
     templetes ="Articles/articles/description_articles.html"
-    context ={
-        "user": Boutique.objects.all
-    } 
+    produits =Produit.objects.all
+    pagination =Paginator(produits, 5)
+    pagination_bando =Paginator(produits,4)
     def get(self,request):
-        return render(request,self.templetes,self.context)
+        context ={
+            "produit ":self.produits,
+            "pagination" :self.pagination.get_page(request.get('page')),
+            "bando_pagination" :self.pagination_bando.get_page(request.get('bando_page'))
+        }
+        return render(request,self.templetes,context)
     def post(self,request):
         pass
     
