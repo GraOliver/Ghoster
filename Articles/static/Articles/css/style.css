@@ -525,7 +525,7 @@ ul {
 
 /* line 52, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_button.scss */
 .btn_3:hover {
-  background-color: red;
+  background-color: #fedf;
   color: #fff;
 }
 
@@ -602,7 +602,7 @@ ul {
   color: #fff;
   border: 1px solid #edeff2;
   text-transform: uppercase;
-  background-color: #ff3368;
+  background-color: #3434ff;
   cursor: pointer;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -2215,7 +2215,7 @@ ul {
 
 /* line 103, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */
 .main_menu .active_color {
-  color: #f5790b !important;
+  color: #080401 !important;
 }
 
 /* line 107, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */
