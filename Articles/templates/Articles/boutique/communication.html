@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messagerie - LIVENDO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .chat-container {
+            height: 450px;
+            overflow-y: auto;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .message {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .message .bubble {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+        .message.sent {
+            justify-content: flex-end;
+        }
+        .message.sent .bubble {
+            background: #007bff;
+            color: white;
+            border-bottom-right-radius: 3px;
+        }
+        .message.received .bubble {
+            background: #e9ecef;
+            color: black;
+            border-bottom-left-radius: 3px;
+        }
+        .ads, .publicity {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .ads img, .publicity img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Cacher annonces et pubs sur mobile */
+        @media (max-width: 768px) {
+            .ads, .publicity {
+                display: none;
+            }
+            #showAnnoncesBtn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container py-5">
+    <h2 class="text-center mb-4">Messagerie - LIVENDO</h2>
+
+    <!-- Bouton pour voir les annonces sur mobile -->
+    <button id="showAnnoncesBtn" class="btn btn-primary w-100 mb-3 d-md-none" data-bs-toggle="modal" data-bs-target="#annoncesModal">
+        Voir les annonces 📢
+    </button>
+
+    <div class="row">
+        <!-- Annonces Section (Gauche - Masqué en mobile) -->
+        <div class="col-md-4 d-none d-md-block">
+            <div class="ads">
+                <h5 class="text-center">Annonces du site</h5>
+                <img src="https://via.placeholder.com/300x150" alt="Annonce 1">
+                <p><strong>Promo spéciale</strong> - 20% sur tous les produits électroménagers cette semaine !</p>
+                
+                <img src="https://via.placeholder.com/300x150" alt="Annonce 2">
+                <p><strong>Offre exclusive</strong> - Livraison gratuite pour les commandes supérieures à 50€.</p>
+                
+                <img src="https://via.placeholder.com/300x150" alt="Annonce 3">
+                <p><strong>Nouveaux arrivages</strong> - Découvrez nos nouveaux produits de menuiserie.</p>
+            </div>
+        </div>
+
+        <!-- Chat Section (Milieu - Toujours visible) -->
+        <div class="col-md-4 col-12">
+            <div class="chat-container">
+                <div class="message received">
+                    <div class="bubble">Bonjour ! Comment pouvons-nous vous aider ?</div>
+                </div>
+                <div class="message sent">
+                    <div class="bubble">J'aimerais en savoir plus sur la livraison.</div>
+                </div>
+                <div class="message received">
+                    <div class="bubble">Bien sûr ! Nous proposons plusieurs options selon votre ville.</div>
+                </div>
+            </div>
+
+            <!-- Input Chat -->
+            <div class="input-group mt-3">
+                <input type="text" id="chatInput" class="form-control" placeholder="Écrivez un message...">
+                <button class="btn btn-primary" id="sendBtn">Envoyer</button>
+            </div>
+        </div>
+
+        <!-- Publicité Section (Droite - Masqué en mobile) -->
+        <div class="col-md-4 d-none d-md-block">
+            <div class="publicity">
+                <h5 class="text-center">Publicité</h5>
+                <img src="https://via.placeholder.com/300x250" alt="Publicité 1">
+                <img src="https://via.placeholder.com/300x250" alt="Publicité 2">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal pour afficher les annonces sur mobile -->
+<div class="modal fade" id="annoncesModal" tabindex="-1" aria-labelledby="annoncesModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="annoncesModalLabel">Annonces du site 📢</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="ads">
+                    <img src="https://via.placeholder.com/300x150" alt="Annonce 1">
+                    <p><strong>Promo spéciale</strong> - 20% sur tous les produits électroménagers cette semaine !</p>
+
+                    <img src="https://via.placeholder.com/300x150" alt="Annonce 2">
+                    <p><strong>Offre exclusive</strong> - Livraison gratuite pour les commandes supérieures à 50€.</p>
+
+                    <img src="https://via.placeholder.com/300x150" alt="Annonce 3">
+                    <p><strong>Nouveaux arrivages</strong> - Découvrez nos nouveaux produits de menuiserie.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('sendBtn').addEventListener('click', function () {
+        let input = document.getElementById('chatInput');
+        let message = input.value.trim();
+        if (message !== "") {
+            let chatContainer = document.querySelector('.chat-container');
+            let newMessage = document.createElement('div');
+            newMessage.classList.add('message', 'sent');
+            newMessage.innerHTML = `<div class="bubble">${message}</div>`;
+            chatContainer.appendChild(newMessage);
+            input.value = "";
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+    });
+</script>
+
+</body>
+</html>
