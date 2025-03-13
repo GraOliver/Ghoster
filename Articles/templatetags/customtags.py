@@ -3,6 +3,7 @@ from django.template.defaultfilters import stringfilter
 from Accounts import models
 register=template.Library()
 
+@register.filter(name="get_image")
 @register.simple_tag
 def get_image(value):
     
@@ -16,4 +17,9 @@ def get_image(value):
         return images.profile_photo.url
     else :
         return "/static/Accounts/assetes/default_profile.png"
-    
+
+@register.filter(name="article_filtre")
+@stringfilter
+def article_filtre(value):
+    for i in value :
+        return i[0]

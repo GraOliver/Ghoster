@@ -1,10 +1,8 @@
 {% extends "./base.html" %}
 {%block content %}
 {%load static%}
-<<<<<<< HEAD
-=======
+{%load customtags%}
 
->>>>>>> Bando
     <!-- banner part start-->
     <section class="banner_part">
         <div class="container">
@@ -23,15 +21,15 @@
                                             </div>
                                         </div>
                                     </div>
-<<<<<<< HEAD
+
                                 </div>
                                 <div class="banner_img d-none d-lg-block">
                                     <img src="{% static 'Articles/img/logo.png'%}" alt="">
-=======
+
                                     <div class="banner_img d-none d-lg-block">
                                         <img src="{% static 'Articles/img/banner_img.png' %}" alt="">
                                     </div>
->>>>>>> Bando
+
                                 </div>
                             </div>
                         {% endfor %}
@@ -61,8 +59,8 @@
                                         <div class="banner_text_iner">
                                             <h1>Wood & Cloth
                                                 Sofa</h1>
-                                            <p>Incididunt ut labore et dolore magna aliqua quis ipsum
-                                                suspendisse ultrices gravida. Risus commodo viverra</p>
+                                            <p>
+                                                {{list}}</p>
                                             <a href="#" class="btn_2">buy now</a>
                                         </div>
                                     </div>

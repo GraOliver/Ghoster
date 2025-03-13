@@ -6,18 +6,22 @@ from . import models,forms
 from .models import Blog,Boutique,Produit
 import random
 from django.core.paginator import Paginator
-templates ="Articles/index.html"
-def index(request):
-    contexts ={
-        'Article':models.Boutique.objects.all()
-    }
-    return render(request,templates,contexts)
+
 
 class BlogView(View):
     template="Articles/index.html"
+    list_produit_hasard =[]
+    try :
+        # list_produit_hasard =get_object_or_404(Produit,id=1)
+        pass
+    except Produit.DoesNotExist :
+        pass
+    
     contents ={
         'article':Produit.objects.all(), 
+        # 'list' :get_object_or_404(Produit,pk=1)
     }
+    
     def get (self,request):
         return render(request,self.template,self.contents)
     

@@ -10,10 +10,15 @@ class Photo(models.Model):
     uploader = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)
     
+    
 class CatalogProduit(models.Model):
     cathegorie =models.CharField(max_length =150)
+    def __str__(self):
+        return self.name
 class CatalogBoutique(models.Model):
     cathegorie =models.CharField(max_length =150)
+    def __str__(self):
+        return self.name
     
 class Blog(models.Model):
     
@@ -23,6 +28,8 @@ class Blog(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)
     starred = models.BooleanField(default=False)
+    def __str__(self):
+        return self.name
 
 class Boutique(models.Model):
     #indetity of boutique
@@ -40,6 +47,9 @@ class Boutique(models.Model):
     #information supplementaire
     description = models.TextField(max_length=500)
     starred = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return self.name
 
 class Produit(models.Model):
     
@@ -54,3 +64,6 @@ class Produit(models.Model):
     #identite du vendeur
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     boutique =models.ForeignKey(Boutique,on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.name
