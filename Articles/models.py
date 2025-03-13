@@ -9,16 +9,17 @@ class Photo(models.Model):
     caption = models.CharField(max_length=128, blank=True)
     uploader = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)
-    
+    def __str__(self):
+        return self.caption
     
 class CatalogProduit(models.Model):
     cathegorie =models.CharField(max_length =150)
     def __str__(self):
-        return self.name
+        return self.cathegorie
 class CatalogBoutique(models.Model):
     cathegorie =models.CharField(max_length =150)
     def __str__(self):
-        return self.name
+        return self.cathegorie
     
 class Blog(models.Model):
     
@@ -29,7 +30,7 @@ class Blog(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     starred = models.BooleanField(default=False)
     def __str__(self):
-        return self.name
+        return self.title
 
 class Boutique(models.Model):
     #indetity of boutique
@@ -49,7 +50,7 @@ class Boutique(models.Model):
     starred = models.BooleanField(default=False)
     
     def __str__(self):
-        return self.name
+        return self.nom_boutique
 
 class Produit(models.Model):
     
@@ -66,4 +67,12 @@ class Produit(models.Model):
     boutique =models.ForeignKey(Boutique,on_delete=models.CASCADE)
     
     def __str__(self):
-        return self.name
+        return self.libele
+
+class CarouselPhotoDescription(models.Model):
+    titre =models.CharField(max_length=25)
+    description=models.CharField(max_length=50)
+    photo =models.ForeignKey(Photo,null=False,on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.titre

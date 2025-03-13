@@ -11,8 +11,8 @@ urlpatterns=[
     
     
     #Bon ici nous allons juste
-    path("/gestion de produit/<int:user>/", views.DescriptionProductView.as_view(), name="produit"),
-    path('/<int:boutique_id>/',views.BoutiqueDescrptionView.as_view(),name='boutique_description'),#get boutique_id
+    path("/gestion de produit/<int:produit_id>/", views.DescriptionProductView.as_view(), name="produit"),
+    path('/Boutique/',views.BoutiqueDescrptionView.as_view(),name='boutique_description'),# Description des tout les articles que nous avons
     
 ]
 

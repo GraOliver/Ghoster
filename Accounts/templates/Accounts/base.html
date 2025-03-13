@@ -6,11 +6,57 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='{%static "Accounts/css/main.css"%}'>
+    {% comment %} <link rel='stylesheet' type='text/css' media='screen' href='{%static "Accounts/css/main.css"%}'> {% endcomment %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{%static 'Articles/css/bootstrap.min.css'%}">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="{%static 'Articles/css/animate.css'%}">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{%static 'Articles/css/owl.carousel.min.css'%}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{%static 'Articles/css/all.css'%}">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="{%static 'Articles/css/flaticon.css'%}">
+    <link rel="stylesheet" href="{%static 'Articles/css/themify-icons.css'%}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{%static 'Articles/css/magnific-popup.css'%}">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="{%static 'Articles/css/slick.css'%}">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{%static 'Articles/css/style.css'%}">
     <script src='main.js'></script>
 </head>
 <body>
-    {% include "./comment.html" %}
     {% block content %}{% endblock content %}
+    {% comment %} le scripte nous le mettons ici {% endcomment %}
+<script src="{%static 'Articles/js/main.js'%}"></script>
+<!-- jquery plugins here-->
+<script src="{%static 'Articles/js/jquery-1.12.1.min.js'%}"></script>
+<!-- popper js -->
+<script src="{% static "Articles/js/popper.min.js" %}"></script>
+<!-- bootstrap js -->
+<script src="{% static "Articles/js/bootstrap.min.js"%}"></script>
+<!-- easing js -->
+<script src="{% static "Articles/js/jquery.magnific-popup.js"%}"></script>
+<!-- swiper js -->
+<script src="{% static "Articles/js/swiper.min.js"%}"></script>
+<!-- swiper js -->
+<script src="{% static "Articles/js/masonry.pkgd.js"%}"></script>
+<!-- particles js -->
+<script src="{% static "Articles/js/owl.carousel.min.js"%}"></script>
+<script src="{% static "Articles/js/jquery.nice-select.min.js"%}"></script>
+<!-- slick js -->
+<script src="{% static "Articles/js/slick.min.js"%}"></script>
+<script src="{% static "Articles/js/jquery.counterup.min.js"%}"></script>
+<script src="{% static "Articles/js/waypoints.min.js"%}"></script>
+<script src="{% static "Articles/js/contact.js"%}"></script>
+<script src="{% static "Articles/js/jquery.ajaxchimp.min.js"%}"></script>
+<script src="{% static "Articles/js/jquery.form.js"%}"></script>
+<script src="{% static "Articles/js/jquery.validate.min.js"%}"></script>
+<script src="{% static "Articles/js/mail-script.js"%}"></script>
+<!-- custom js -->
+<script src="{% static "Articles/js/custom.js"%}"></script>
 </body>
 </html>

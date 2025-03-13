@@ -42,7 +42,7 @@ class LoginUserView(View):
 class UserLogoutView(View):
     def get(self,request ):
         logout(request)
-        return redirect("Accounts:login_user")
+        return redirect("Articles:index")
 
 class UserCreationView(View):
     """Cette fonction est pour la création d'un nouveau utilisateur

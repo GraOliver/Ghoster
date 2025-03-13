@@ -130,7 +130,7 @@ STATICFILES_DIRE =[
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL="Accounts.User" # custom user
-LOGIN_URL="Accounts:login"# gestion des connexion
+LOGIN_URL="Accounts:login_user"# gestion des connexion
 
 # Configuration de la fonction de media, et de recuperation des photos
 MEDIA_URL="/media/"

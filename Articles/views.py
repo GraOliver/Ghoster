@@ -3,7 +3,7 @@ from django.views.generic import View
 from django.template import loader
 from django.contrib.auth.decorators import login_required
 from . import models,forms
-from .models import Blog,Boutique,Produit
+from .models import Blog,Boutique,Produit,CarouselPhotoDescription
 import random
 from django.core.paginator import Paginator
 
@@ -12,14 +12,16 @@ class BlogView(View):
     template="Articles/index.html"
     list_produit_hasard =[]
     try :
-        # list_produit_hasard =get_object_or_404(Produit,id=1)
+        list_produit_hasard =Produit.objects.get(pk=random.randint(0,100))
         pass
     except Produit.DoesNotExist :
-        pass
+        list_produit_hasard =get_object_or_404(Produit,pk=1)   
+        pass  
     
     contents ={
         'article':Produit.objects.all(), 
-        # 'list' :get_object_or_404(Produit,pk=1)
+        'produit_principal_hasard' :get_object_or_404(Produit,pk=1),
+        'produit_carousel':CarouselPhotoDescription.objects.all()
     }
     
     def get (self,request):
@@ -90,11 +92,11 @@ class BoutiqueGestionView(View):
            return render(request,self.template)
 
 class BoutiqueDescrptionView(View):
-     templetes ="Articles/boutique/boutique_description.html"
+     templetes ="Articles/boutique/boutique.html"
     #  @login_required
-     def get(self,request,boutique_id):
+     def get(self,request):
          context ={
-             'response' : get_object_or_404(Boutique,author=boutique_id)
+             'response' :Boutique.objects.all()
          }
          
          return render(request,self.templetes,context)
@@ -122,13 +124,9 @@ class ProfilSeller(View):
         pass
     
 class DescriptionProductView(View):
-    template ="Articles/boutique/boutique_description.html"
-    def get(self,request,user):
-        context ={'boutique':Blog.objects.get(author=1)}
-        # context = {'boutique':get_object_or_404(Blog,pk=user).get_deferred_fields()}
-        # if get_object_or_404(Boutique,pk=user).get_deferred_fields:
-        #     return render(request,self.template,{'boutique':get_object_or_404(Boutique,pk=user)})
-        # else:
+    template ="Articles/boutique/communication.html"
+    def get(self,request,produit_id):
+        context ={'description_prosuit':get_object_or_404(Produit,pk = produit_id)}
         return render(request,self.template,context)
        
         
