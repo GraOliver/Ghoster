@@ -66,8 +66,10 @@ class Produit(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     boutique =models.ForeignKey(Boutique,on_delete=models.CASCADE)
     
+    class Metha :
+        pass   
     def __str__(self):
-        return self.libele
+        return self.description
 
 class CarouselPhotoDescription(models.Model):
     titre =models.CharField(max_length=25)

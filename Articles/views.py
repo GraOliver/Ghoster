@@ -10,18 +10,30 @@ from django.core.paginator import Paginator
 
 class BlogView(View):
     template="Articles/index.html"
-    list_produit_hasard =[]
     try :
-        list_produit_hasard =Produit.objects.get(pk=random.randint(0,100))
+        list_produit_hasard1 =Produit.objects.get(pk=random.randint(0,100))
+        list_produit_hasard2 =Produit.objects.get(pk=random.randint(0,100))
+        list_produit_hasard3 =Produit.objects.get(pk=random.randint(0,100))
+        list_produit_hasard4 =Produit.objects.get(pk=random.randint(0,100))
         pass
     except Produit.DoesNotExist :
-        list_produit_hasard =get_object_or_404(Produit,pk=1)   
+        list_produit_hasard1 =get_object_or_404(Produit,pk=1)  
+        list_produit_hasard2 =get_object_or_404(Produit,pk=1)  
+        list_produit_hasard3 =get_object_or_404(Produit,pk=1)  
+        list_produit_hasard4 =get_object_or_404(Produit,pk=1)   
         pass  
     
     contents ={
         'article':Produit.objects.all(), 
-        'produit_principal_hasard' :get_object_or_404(Produit,pk=1),
-        'produit_carousel':CarouselPhotoDescription.objects.all()
+        'produit_principal_hasard1' :list_produit_hasard1,
+        'produit_principal_hasard2' :list_produit_hasard2,
+        'produit_principal_hasard3' :list_produit_hasard3,
+        'produit_principal_hasard4' :list_produit_hasard4,
+        
+        'produit_carousel':CarouselPhotoDescription.objects.all(),
+        
+        'best_produit1':Produit.objects.order_by('?')[:4],
+        'best_produit2':Produit.objects.order_by('?')[:4]
     }
     
     def get (self,request):
