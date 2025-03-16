@@ -1,0 +1,86 @@
+{% extends "Articles/base.html" %}
+{%block content %}
+{%load static%}
+{%load customtags%}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Section principale -->
+  <main class="container mt-5 pt-5">
+    <div class="row g-4">
+      <!-- Partie gauche : Description du vendeur -->
+      <div class="col-lg-4">
+        <div class="card p-3">
+          <div class="d-flex align-items-center mb-3">
+            <img src="{{description_prosuit.boutique.photo.image.path}}" alt="" class="rounded-circle img-fluid px-1" style="width:40%; height:150px; ">
+            <div>
+              <h5 class="mb-0">{{description_prosuit.boutique.nom_boutique}}</h5>
+              <small class="text-muted">{{description_prosuit.boutique.cathegorie }}</small>
+            </div>
+          </div>
+          <p><strong>Adresse :</strong>{{description_prosuit.boutique.adresse}}</p>
+          <p><strong>Téléphone :</strong> {{description_prosuit.boutique.telephone}}</p>
+          <p><strong>Ville :</strong> {{description_prosuit.boutique.ville}}</p>
+          {% comment %} <p><strong>Années d'expérience :</strong> 10 ans</p> {% endcomment %}
+          <p>{{description_prosuit.boutique}}.</p>
+        
+        </div>
+      </div>
+
+      <!-- Partie droite : Description complète du produit -->
+      <div class="col-lg-8">
+        <div class="card p-3">
+          <img src="{{description_prosuit.photo.path}}" class="card-img-top" alt="Produit">
+          <div class="card-body">
+            <h5 class="card-title">{{description_prosuit.libele}}</h5>
+            <p class="card-text">{{description_prosuit.description}}. Livraison possible.</p>
+            
+            <p><strong>Quantité :</strong>{{description_prosuit.quantite}}</p>
+            <p><strong>Prix total :</strong>{{description_produit.prix}}</p>
+            <p><strong>Ponctualité :</strong> <span class="star-rating">★★★★☆</span></p>
+            <p><strong>Respect de l'annonce :</strong> <span class="star-rating">★★★★★</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Produits liés -->
+    <div class="mt-5">
+      <h4>Produits liés</h4>
+      <div class="row g-4">
+        <!-- Exemple de produit lié -->
+        <div class="col-md-4 col-lg-3">
+          <div class="card">
+            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Produit lié">
+            <div class="card-body">
+              <h6 class="card-title">Tomates cerises</h6>
+              <p class="card-text">Produits bio en petites quantités.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 col-lg-3">
+          <div class="card">
+            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Produit lié">
+            <div class="card-body">
+              <h6 class="card-title">Concombres frais</h6>
+              <p class="card-text">Concombres bio, culture locale.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 col-lg-3">
+          <div class="card">
+            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Produit lié">
+            <div class="card-body">
+              <h6 class="card-title">Lait frais</h6>
+              <p class="card-text">Lait bio produit localement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+{% endblock content %}

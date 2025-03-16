@@ -134,7 +134,7 @@ LOGIN_URL="Accounts:login_user"# gestion des connexion
 
 # Configuration de la fonction de media, et de recuperation des photos
 MEDIA_URL="/media/"
-MEDIA_ROOT=BASE_DIR.joinpath("static/")
+# MEDIA_ROOT=BASE_DIR.joinpath("/static/")
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 # Gestion des Emails pour la réunitialisations de mot de pass

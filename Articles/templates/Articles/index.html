@@ -17,7 +17,7 @@
                                             <div class="banner_text_iner">
                                                 <h1>{{produit.titre}}</h1>
                                                 <p> {{produit.description}} </p>
-                                                <a href="{% url 'Articles:produit' produit.id %}" class="btn_2">Acheter</a>
+                                                <a href="{% url 'Articles:produit' produit.id produit.id%}" class="btn_2">Acheter</a>
                                             </div>
                                         </div>
                                     </div>
@@ -43,7 +43,7 @@
 
     <!-- feature_part start-->
     <section class="feature_part padding_top">
-        <div class="container">
+        <div class="container shadow-sm">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section_tittle text-center">
@@ -55,8 +55,8 @@
                 <div class="col-lg-7 col-sm-6">
                     <div class="single_feature_post_text">
                         <p>Qualite superieur</p>
-                        <h3>{{produit_principal_hasard1.libele}}</h3>
-                        <a href="{% url 'Articles:produit' produit_principal_hasard1.id %}" class="feature_btn">EXPLORER ! <i class="fas fa-play" style="color :black"></i></a>
+                        <h3>{{produit_principal_hasard1.libele}}</h3>x
+                        <a href="{% url 'Articles:produit' produit_principal_hasard1.id produit_principal_hasard1.boutique.id%}" class="feature_btn">EXPLORER ! <i class="fas fa-play" style="color :black"></i></a>
                         
                         <img src='{{produit_principal_hasard1.photo.image.path}}' alt="">
                     </div>
@@ -65,7 +65,8 @@
                     <div class="single_feature_post_text">
                         <p>Premium Quality</p>
                         <h3>{{produit_principal_hasard2.libele}}</h3>
-                        <a href="{% url 'Articles:produit' produit_principal_hasard2.id %}" class="feature_btn">EXPLORER !<i class="fas fa-play"></i></a>
+                        <a href="{% url 'Articles:produit' produit_principal_hasard2.id  produit_principal_hasard2.boutique.id%}" class="feature_btn">EXPLORER !<i class="fas fa-play"></i></a>
+                        
                         <img src="{{produit_principal_hasar2.photo.image.path}}" alt="">
                     </div>
                 </div>
@@ -73,7 +74,7 @@
                     <div class="single_feature_post_text">
                         <p>Premium Quality</p>
                         <h3>{{produit_principal_hasard3.libele}}</h3>
-                        <a href="{% url 'Articles:produit' produit_principal_hasard3.id %}" class="feature_btn">EXPLORER !<i class="fas fa-play"></i></a>
+                        <a href="{% url 'Articles:produit' produit_principal_hasard3.id produit_principal_hasard3.boutique.id%}" class="feature_btn">EXPLORER !<i class="fas fa-play"></i></a>
                         <img src="img/feature/feature_3.png" alt="">
                     </div>
                 </div>
@@ -81,7 +82,7 @@
                     <div class="single_feature_post_text">
                         <p>Premium Quality</p>
                         <h3>{{produit_principal_hasard4.libele}}</h3>
-                        <a href="{% url 'Articles:produit' produit_principal_hasard4.id %}" class="feature_btn">EXPLORER <i class="fas fa-play"></i></a>
+                        <a href="{% url 'Articles:produit' produit_principal_hasard4.id produit_principal_hasard4.boutique.id%}" class="feature_btn">EXPLORER <i class="fas fa-play"></i></a>
                         <img src="{{produit_principal_hasard4.photo.image.path}}" alt="">
                     </div>
                 </div>
@@ -111,12 +112,12 @@
                                 <div class="row align-items-center justify-content-between">
                                     <div class="col-lg-3 col-sm-6">
                                             <div class="single_product_item">
-                                                <img src="img/product/product_1.png" alt="">
+                                                <img src="{{articles.photo.image.path}}" alt="">
                                                 <div class="single_product_text">
                                                     <h4>{{articles.libele}}</h4>
                                                     <h3>{{articles.prix}} Fc</h3>
-                                                    <a href="{% url 'Articles:produit' articles.id %}" class="add_cart">+<i class="ti-heart"></i></a>
-                                                    <a href ="{% url 'Articles:produit' articles.id %}"> descrition </a>
+                                                    <a href="{% url 'Articles:produit' articles.id articles.id%}" class="add_cart">+<i class="ti-heart"></i></a>
+                                                    <a href ="{% url 'Articles:produit' articles.id articles.id%}"> descrition </a>
                                                 </div>
                                             </div>
                                     </div>
@@ -129,12 +130,12 @@
                                 {% for articles in best_produit2 %}
                                     <div class="col-lg-3 col-sm-6">
                                         <div class="single_product_item">
-                                            <img src="img/product/product_1.png" alt="">
+                                            <img src="{{articles.photo.image.path}}" alt="">
                                             <div class="single_product_text">
                                                 <h4>{{articles.libele}}</h4>
                                                 <h3>{{articles.prix}} Fc</h3>
                                                 <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
-                                                <a href ="{% url 'Articles:produit' articles.id %}"> descrition </a>
+                                                <a href ="{% url 'Articles:produit' articles.id articles.id %}"> descrition </a>
                                             </div>
                                         </div>
                                     </div>
@@ -189,48 +190,22 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="section_tittle text-center">
-                        <h2>Best Sellers <span>shop</span></h2>
+                        <h2>Autre produit de nos <span>shops</span></h2>
                     </div>
                 </div>
             </div>
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-12">
                     <div class="best_product_slider owl-carousel">
-                        <div class="single_product_item">
-                            <img src="img/product/product_1.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
+                        {% for articles in best_produit3  %}
+                            <div class="single_product_item">
+                                <img src="{{articles.photo.image.path}}" alt="">
+                                <div class="single_product_text">
+                                    <h4>{{articles.libele}}</h4>
+                                    <h3>{{articles.description}}</h3>
+                                </div>
                             </div>
-                        </div>
-                        <div class="single_product_item">
-                            <img src="img/product/product_2.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
-                        <div class="single_product_item">
-                            <img src="img/product/product_3.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
-                        <div class="single_product_item">
-                            <img src="img/product/product_4.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
-                        <div class="single_product_item">
-                            <img src="img/product/product_5.png" alt="">
-                            <div class="single_product_text">
-                                <h4>Quartz Belt Watch</h4>
-                                <h3>$150.00</h3>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -267,34 +242,34 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="single_client_logo">
-                        <img src="img/client_logo/client_logo_1.png" alt="">
+                        <img src="{%static "Articles/img/client_logo/client_logo_1.png" %}" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="img/client_logo/client_logo_2.png" alt="">
+                        <img src="{%static "Articles/img/client_logo/client_logo_2.png" %}" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="img/client_logo/client_logo_3.png" alt="">
+                        <img src="{%static "Articles/img/client_logo/client_logo_3.png" %}" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="img/client_logo/client_logo_4.png" alt="">
+                        <img src="{%static "Articles/img/client_logo/client_logo_4.png" %}" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="img/client_logo/client_logo_5.png" alt="">
+                        <img src="{%static "Articles/img/client_logo/client_logo_5.png" %}" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="img/client_logo/client_logo_3.png" alt="">
+                        <img src="{%static "Articles/img/client_logo/client_logo_3.png" %}" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="img/client_logo/client_logo_1.png" alt="">
+                        <img src="{%static "Articles/img/client_logo/client_logo_1.png" %}" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="img/client_logo/client_logo_2.png" alt="">
+                        <img src="{%static "Articles/img/client_logo/client_logo_2.png" %}" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="img/client_logo/client_logo_3.png" alt="">
+                        <img src="{%static "Articles/img/client_logo/client_logo_3.png" %}" alt="">
                     </div>
                     <div class="single_client_logo">
-                        <img src="img/client_logo/client_logo_4.png" alt="">
+                        <img src="{%static "Articles/img/client_logo/client_logo_4.png" %}" alt="">
                     </div>
                 </div>
             </div>

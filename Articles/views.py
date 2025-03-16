@@ -33,18 +33,22 @@ class BlogView(View):
         'produit_carousel':CarouselPhotoDescription.objects.all(),
         
         'best_produit1':Produit.objects.order_by('?')[:4],
-        'best_produit2':Produit.objects.order_by('?')[:4]
+        'best_produit2':Produit.objects.order_by('?')[:4],
+        'best_produit3':Produit.objects.order_by('?')[:8],
     }
     
     def get (self,request):
         return render(request,self.template,self.contents)
+    
+    def post(self,request):
+        pass
     
 class UploadPhotoVenteView(View):
     template = "Articles/boutique/boutique.html"
     get_photo =forms.PhotoForm
     get_blog =forms.Blog
     
-    # @login_required # gestion des utillisateur connecter
+    @login_required # gestion des utillisateur connecter
     def get(self,request):
         form={
             "photo_form" : self.get_photo(),
@@ -52,7 +56,7 @@ class UploadPhotoVenteView(View):
         }
         return render(request,self.template,form)
                 
-    # @login_required # gestion des utillisateur connecter
+    @login_required # gestion des utillisateur connecter
     def post(self,request):
         photo_form= self.get_photo(request.POST, request.FILES)
         blog_form = self.get_blog(request.POST)
@@ -136,9 +140,13 @@ class ProfilSeller(View):
         pass
     
 class DescriptionProductView(View):
-    template ="Articles/boutique/communication.html"
-    def get(self,request,produit_id):
-        context ={'description_prosuit':get_object_or_404(Produit,pk = produit_id)}
+    template ="Articles/boutique/description_produit.html"
+    #@login_required
+    def get(self,request,produit_id,id_boutique):
+        context ={
+            'description_prosuit':get_object_or_404(Produit,pk = produit_id),
+            # 'autre_produit':Produit.objects.all().filter(boutique='')[:6]
+        }
         return render(request,self.template,context)
        
         

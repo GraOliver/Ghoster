@@ -17,11 +17,11 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-
+# 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Login/',include("Accounts.urls"),name='Accounts'),
-    path('Ghoster/',include("Articles.urls"),name='Articles')
+    path('',include("Articles.urls"),name='Articles')
 ]
 
 #Gestion des images 
