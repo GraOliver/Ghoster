@@ -149,4 +149,8 @@ class DescriptionProductView(View):
         }
         return render(request,self.template,context)
        
-        
+
+class Add_card(View):
+    def get(self, request,id_produit):
+        user =request.user
+        produit = get_object_or_404(Produit,pk=id_produit)

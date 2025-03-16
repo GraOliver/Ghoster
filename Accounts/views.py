@@ -110,4 +110,3 @@ class UploadProfilUserView(View):
         
         return render(request,self.templates,{"form":form})          
 
-        
