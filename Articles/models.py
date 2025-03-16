@@ -71,6 +71,16 @@ class Produit(models.Model):
     def __str__(self):
         return self.description
 
+class Panier(models.Model):
+    user =models.OneToOneField(settings.AUTH_USER_MODEL, verbose_name=("Utilisateur"), on_delete=models.CASCADE)
+    articles =models.ManyToManyField(Produit, verbose_name=("Articles"))
+    commander =models.BooleanField(default=False)
+    date_commande =models.DateField(blank=True, auto_now=False, auto_now_add=False,null=True)
+    
+    def __str__(self):
+        return self.user.username
+    
+
 class CarouselPhotoDescription(models.Model):
     titre =models.CharField(max_length=25)
     description=models.CharField(max_length=50)
