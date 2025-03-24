@@ -2,8 +2,9 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.views.generic import View
 from django.template import loader
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 from . import models,forms
-from .models import Blog,Boutique,Produit,CarouselPhotoDescription
+from .models import Blog,Boutique,Produit,CarouselPhotoDescription,Panier,Order
 import random
 from django.core.paginator import Paginator
 
@@ -150,7 +151,29 @@ class DescriptionProductView(View):
         return render(request,self.template,context)
        
 
-class Add_card(View):
+class AddCard(View):
     def get(self, request,id_produit):
         user =request.user
         produit = get_object_or_404(Produit,pk=id_produit)
+        cart,_ =Panier.objects.get_or_create(user =user)
+        commander,created =Order.objects.get_or_create(user=user,produit=produit)
+        
+        if created :
+            cart.articles.add(commander)
+            cart.save()
+        else :
+            commander.quantite += 1
+            commander.save()
+            pass
+        return redirect(reverse("Articles:index"))
+
+class CartView(View):
+    
+    def get(self,request):
+        user = request.user
+        cart =get_object_or_404(Panier,user=user)
+        contex ={
+        'cart' : cart.articles.all()
+        }
+        
+        return render(request,'articles/boutique/cart.html',contex)

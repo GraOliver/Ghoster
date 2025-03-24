@@ -116,7 +116,7 @@
                                                 <div class="single_product_text">
                                                     <h4>{{articles.libele}}</h4>
                                                     <h3>{{articles.prix}} Fc</h3>
-                                                    <a href="{% url 'Articles:produit' articles.id articles.id%}" class="add_cart">+<i class="ti-heart"></i></a>
+                                                    <a href="{% url 'Articles:add_cart' articles.id %}" class="add_cart">+<i class="ti-heart"></i></a>
                                                     <a href ="{% url 'Articles:produit' articles.id articles.id%}"> descrition </a>
                                                 </div>
                                             </div>
@@ -134,7 +134,7 @@
                                             <div class="single_product_text">
                                                 <h4>{{articles.libele}}</h4>
                                                 <h3>{{articles.prix}} Fc</h3>
-                                                <a href="#" class="add_cart">+ add to cart<i class="ti-heart"></i></a>
+                                                <a href="{% url 'Articles:add_cart' articles.id%}" class="add_cart">+<i class="ti-heart"></i></a>
                                                 <a href ="{% url 'Articles:produit' articles.id articles.id %}"> descrition </a>
                                             </div>
                                         </div>

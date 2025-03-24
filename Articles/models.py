@@ -71,6 +71,18 @@ class Produit(models.Model):
     def __str__(self):
         return self.description
 
+
+# Panier 
+class Order(models.Model):
+    user =models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,verbose_name="Utilisateur")
+    produit =models.ForeignKey(Produit, verbose_name=("Produit"), on_delete=models.CASCADE)
+    quantite =models.IntegerField(default=1)
+    commander =models.BooleanField(default=False)
+    
+    def __str__(self):
+        return f"{self.produit.quantite} "
+    
+    
 class Panier(models.Model):
     user =models.OneToOneField(settings.AUTH_USER_MODEL, verbose_name=("Utilisateur"), on_delete=models.CASCADE)
     articles =models.ManyToManyField(Produit, verbose_name=("Articles"))
