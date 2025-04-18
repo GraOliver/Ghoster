@@ -572,7 +572,7 @@ ul {
 
 /* line 92, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_button.scss */
 .btn_4 {
-  color: #ff3368;
+  color: #2dacdb;
   font-size: 15px;
   font-weight: 700;
   margin-top: 53px;
@@ -632,7 +632,7 @@ ul {
 /* line 137, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_button.scss */
 .button-link {
   letter-spacing: 0;
-  color: #3b1d82;
+  color: #2dacdb;
   border: 0;
   padding: 0;
 }
@@ -640,7 +640,7 @@ ul {
 /* line 143, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_button.scss */
 .button-link:hover {
   background: transparent;
-  color: #3b1d82;
+  color: #2dacdb;
 }
 
 /* line 149, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_button.scss */
@@ -1187,7 +1187,7 @@ ul {
 
 /* line 540, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_blog.scss */
 .blog_details a:hover {
-  color: #ff3368 !important;
+  color: #2dacdb !important;
 }
 
 /* line 545, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_blog.scss */
@@ -1255,7 +1255,7 @@ ul {
   left: 10px;
   display: block;
   color: #fff;
-  background-color: #ff3368;
+  background-color: #2dacdb;
   padding: 8px 15px;
   border-radius: 5px;
 }
@@ -3051,7 +3051,7 @@ ul {
 
 /* line 20, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_best_seller.scss */
 .best_seller .single_product_item .single_product_text a {
-  color: #ff3368;
+  color: #2dacdb;
   text-transform: uppercase;
   font-size: 18px;
   font-weight: 500;
@@ -5533,7 +5533,7 @@ ul {
 
 /* line 6, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_confirmation_part.scss */
 .confirmation_part .confirmation_tittle span {
-  color: #ff3368;
+  color: #2dacdb;
 }
 
 /* line 11, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_confirmation_part.scss */
@@ -5645,7 +5645,7 @@ sup,
 sub,
 u,
 del {
-  color: #415094;
+  color: #2dacdb;
 }
 
 /* line 93, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_elements.scss */
@@ -5817,77 +5817,77 @@ h6 {
 /* line 217, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_elements.scss */
 .genric-btn.primary {
   color: #fff;
-  background: #ff3368;
+  background: #2dacdb;
   border: 1px solid transparent;
 }
 
 /* line 221, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_elements.scss */
 .genric-btn.primary:hover {
-  color: #ff3368;
-  border: 1px solid #ff3368;
+  color: #2dacdb;
+  border: 1px solid #01232f;
   background: #fff;
 }
 
 /* line 227, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_elements.scss */
 .genric-btn.primary-border {
-  color: #ff3368;
-  border: 1px solid #ff3368;
+  color: #2dacdb;
+  border: 1px solid #01232f;
   background: #fff;
 }
 
 /* line 231, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_elements.scss */
 .genric-btn.primary-border:hover {
   color: #fff;
-  background: #ff3368;
+  background: #2dacdb;
   border: 1px solid transparent;
 }
 
 /* line 237, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_elements.scss */
 .genric-btn.success {
   color: #fff;
-  background: #4cd3e3;
+  background: #2dacdb;
   border: 1px solid transparent;
 }
 
 /* line 241, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_elements.scss */
 .genric-btn.success:hover {
-  color: #4cd3e3;
-  border: 1px solid #4cd3e3;
+  color: #2dacdb;
+  border: 1px solid #01232f;
   background: #fff;
 }
 
 /* line 247, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_elements.scss */
 .genric-btn.success-border {
-  color: #4cd3e3;
-  border: 1px solid #4cd3e3;
+  color: #2dacdb;
+  border: 1px solid #01232f;
   background: #fff;
 }
 
 /* line 251, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_elements.scss */
 .genric-btn.success-border:hover {
   color: #fff;
-  background: #4cd3e3;
+  background: #2dacdb;
   border: 1px solid transparent;
 }
 
 /* line 257, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_elements.scss */
 .genric-btn.info {
   color: #fff;
-  background: #38a4ff;
+  background: #2dacdb;
   border: 1px solid transparent;
 }
 
 /* line 261, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_elements.scss */
 .genric-btn.info:hover {
   color: #38a4ff;
-  border: 1px solid #38a4ff;
+  border: 1px solid #01232f;
   background: #fff;
 }
 
 /* line 267, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_elements.scss */
 .genric-btn.info-border {
-  color: #38a4ff;
-  border: 1px solid #38a4ff;
+  color: #01232f;
+  border: 1px solid #01232f;
   background: #fff;
 }
 

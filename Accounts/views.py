@@ -18,15 +18,15 @@ class LoginUserView(View):
     class_form_login =LoginUser
     def get(self,request):
         form = LoginUser()   
-        return render(request,self.templates,{'form':form})
+        return render(request,self.templates)
     
     def post(self,request):
-        form = self.class_form_login(request.POST)
-        if form.is_valid():
+       
             user =authenticate(
                 request,
-                username =form.cleaned_data["username"],
-                password =form.cleaned_data["password"]
+                username =request.POST.get("username"),
+                password =request.POST.get("password")
+                
             )
             
             if user is not None :
@@ -34,10 +34,11 @@ class LoginUserView(View):
                 return redirect('Articles:index')
             else :
                 messages.info(request,self.message_error)
+                print("erreur")
                 pass
             pass
 
-        return render(request,self.templates,{"form":form})
+            return render(request,self.templates)
 
 class UserLogoutView(View):
     def get(self,request ):
@@ -70,8 +71,6 @@ class UserCreationView(View):
 class UserChangeView(View):
     form_class =UserChangeSign
     templates ="Accounts/change.html"
-    
-    
     def get(self,request):
         form =self.form_class()
         #getion de l'image du profil
