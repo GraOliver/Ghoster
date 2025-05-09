@@ -39,6 +39,12 @@ class BlogView(View):
     }
     
     def get (self,request):
+        
+        # #Rechercher sur la barre 
+        # search_input =request.GET.get('search_input')
+        # if search_input !='' and search_input is not None :
+        #     return render(request,self.template,self.contents)
+            
         return render(request,self.template,self.contents)
     
     def post(self,request):
@@ -99,7 +105,7 @@ class BoutiqueGestionView(View):
            photo=photo_form.save(commit=False)
            photo.uploader=request.user
            photo.save()
-           
+           p
            boutique =boutique_form.save(commit=False)
            boutique.author =request.user
            boutique.photo =photo
@@ -146,7 +152,7 @@ class DescriptionProductView(View):
     def get(self,request,produit_id,id_boutique):
         context ={
             'description_prosuit':get_object_or_404(Produit,pk = produit_id),
-            # 'autre_produit':Produit.objects.all().filter(boutique='')[:6]
+            'autre_produit':Produit.objects.all().filter(boutique=id_boutique)[:6]
         }
         return render(request,self.template,context)
        

@@ -10,7 +10,7 @@
       <div class="col-lg-4">
         <div class="card p-3">
           <div class="d-flex align-items-center mb-3">
-            <img src="{{description_prosuit.boutique.photo.image.path}}" alt="" class="rounded-circle img-fluid px-1" style="width:40%; height:150px; ">
+            <img src="{{description_prosuit.boutique.photo.image.url}}" alt="" class="rounded-circle img-fluid px-1" style="width:40%; height:150px; ">
             <div>
               <h5 class="mb-0">{{description_prosuit.boutique.nom_boutique}}</h5>
               <small class="text-muted">{{description_prosuit.boutique.cathegorie }}</small>
@@ -28,14 +28,14 @@
       <!-- Partie droite : Description complète du produit -->
       <div class="col-lg-8">
         <div class="card p-3">
-          <img src="{{description_prosuit.photo.path}}" class="card-img-top" alt="Produit">
+          <img src="{{description_prosuit.photo.url}}" class="card-img-top" alt="Produit">
           <div class="card-body">
             <h5 class="card-title">{{description_prosuit.libele}}</h5>
             <p class="card-text">{{description_prosuit.description}}. Livraison possible.</p>
             
             <p><strong>Quantité :</strong>{{description_prosuit.quantite}}</p>
             <p><strong>Prix total :</strong>{{description_produit.prix}}</p>
-            <p><strong>Ponctualité :</strong> <span class="star-rating">★★★★☆</span></p>
+            {% comment %} <p><strong>Ponctualité :</strong> <span class="star-rating">★★★★☆</span></p> {% endcomment %}
             <p><strong>Respect de l'annonce :</strong> <span class="star-rating">★★★★★</span></p>
           </div>
         </div>
@@ -50,35 +50,19 @@
       <h4>Produits liés</h4>
       <div class="row g-4">
         <!-- Exemple de produit lié -->
-        <div class="col-md-4 col-lg-3">
-          <div class="card">
-            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Produit lié">
-            <div class="card-body">
-              <h6 class="card-title">Tomates cerises</h6>
-              <p class="card-text">Produits bio en petites quantités.</p>
+
+        {% for produit_lie in autre_produit %}
+          <div class="col-md-4 col-lg-3">
+            <div class="card">
+              <img src="{{produit_lie.photo.image.url}}" class="card-img-top" alt="Produit lié">
+              <div class="card-body">
+                <h6 class="card-title">{{produit_lie.libele}}</h6>
+                <p class="card-text">{{produit_lie.description}}</p>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <div class="col-md-4 col-lg-3">
-          <div class="card">
-            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Produit lié">
-            <div class="card-body">
-              <h6 class="card-title">Concombres frais</h6>
-              <p class="card-text">Concombres bio, culture locale.</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-md-4 col-lg-3">
-          <div class="card">
-            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Produit lié">
-            <div class="card-body">
-              <h6 class="card-title">Lait frais</h6>
-              <p class="card-text">Lait bio produit localement.</p>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
+
       </div>
     </div>
   </main>

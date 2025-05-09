@@ -24,7 +24,7 @@
 
                                 </div>
                                 <div class="banner_img d-none d-lg-block">
-                                    <img src="{{produit.photo.path}}" alt="">
+                                    <img src="{{produit.photo.image.url}}" alt="">
 
                                     {% comment %} <div class="banner_img d-none d-lg-block">
                                         <img src="{% static 'Articles/img/banner_img.png' %}" alt="">
@@ -56,9 +56,9 @@
                     <div class="single_feature_post_text">
                         <p>Qualite superieur</p>
                         <h3>{{produit_principal_hasard1.libele}}</h3>x
-                        <a href="{% url 'Articles:produit' produit_principal_hasard1.id produit_principal_hasard1.boutique.id%}" class="feature_btn">EXPLORER ! <i class="fas fa-play" style="color :black"></i></a>
+                        <a href="{% url 'Articles:produit' produit_principal_hasard1.id   produit_principal_hasard1.boutique.id%}" class="feature_btn">EXPLORER ! <i class="fas fa-play" style="color :black"></i></a>
                         
-                        <img src='{{produit_principal_hasard1.photo.image.path}}' alt="">
+                        <img src="{{produit_principal_hasard1.photo.image.url}}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-5 col-sm-6">
@@ -67,7 +67,7 @@
                         <h3>{{produit_principal_hasard2.libele}}</h3>
                         <a href="{% url 'Articles:produit' produit_principal_hasard2.id  produit_principal_hasard2.boutique.id%}" class="feature_btn">EXPLORER !<i class="fas fa-play"></i></a>
                         
-                        <img src="{{produit_principal_hasar2.photo.image.path}}" alt="">
+                        <img src="{{produit_principal_hasar2.photo.image.url}}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-5 col-sm-6">
@@ -83,7 +83,7 @@
                         <p>Premium Quality</p>
                         <h3>{{produit_principal_hasard4.libele}}</h3>
                         <a href="{% url 'Articles:produit' produit_principal_hasard4.id produit_principal_hasard4.boutique.id%}" class="feature_btn">EXPLORER <i class="fas fa-play"></i></a>
-                        <img src="{{produit_principal_hasard4.photo.image.path}}" alt="">
+                        <img src="{{produit_principal_hasard4.photo.image.url}}" alt="">
                     </div>
                 </div>
             </div>
@@ -112,7 +112,7 @@
                                 <div class="row align-items-center justify-content-between">
                                     <div class="col-lg-3 col-sm-6">
                                             <div class="single_product_item">
-                                                <img src="{{articles.photo.image.path}}" alt="">
+                                                <img src="{{articles.photo.image.url}}" alt="">
                                                 <div class="single_product_text">
                                                     <h4>{{articles.libele}}</h4>
                                                     <h3>{{articles.prix}} Fc</h3>
@@ -130,7 +130,7 @@
                                 {% for articles in best_produit2 %}
                                     <div class="col-lg-3 col-sm-6">
                                         <div class="single_product_item">
-                                            <img src="{{articles.photo.image.path}}" alt="">
+                                            <img src="{{articles.photo.image.url}}" alt="">
                                             <div class="single_product_text">
                                                 <h4>{{articles.libele}}</h4>
                                                 <h3>{{articles.prix}} Fc</h3>
@@ -199,7 +199,7 @@
                     <div class="best_product_slider owl-carousel">
                         {% for articles in best_produit3  %}
                             <div class="single_product_item">
-                                <img src="{{articles.photo.image.path}}" alt="">
+                                <img src="{{articles.photo.image.url}}" alt="">
                                 <div class="single_product_text">
                                     <h4>{{articles.libele}}</h4>
                                     <h3>{{articles.description}}</h3>
