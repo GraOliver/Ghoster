@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3kah%g&(f455f36!g5d4#k!bls3*ol8qfqiu2&j6fidh)4ju1c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['172.20.10.2']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -134,7 +134,7 @@ LOGIN_URL="Accounts:login_user"# gestion des connexion
 
 # Configuration de la fonction de media, et de recuperation des photos
 MEDIA_URL="/media/"
-# MEDIA_ROOT=BASE_DIR.joinpath("/static/")
+
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 # Gestion des Emails pour la réunitialisations de mot de pass
